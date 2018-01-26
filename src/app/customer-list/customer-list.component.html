@@ -19,4 +19,7 @@
       <mat-icon aria-label="Delete">delete</mat-icon>
     </button>
   </mat-list-item>
+  <mat-list-item *ngIf="!customers?.length">
+    <p mat-line> No customer(s).</p>
+  </mat-list-item>
 </mat-list>
