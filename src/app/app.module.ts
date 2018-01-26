@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http/src/module';
 
 import { AppComponent } from './app.component';
 import { CustomMaterialModule } from './custom-material/custom-material.module';
@@ -20,6 +21,7 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
     BrowserModule,
     CustomMaterialModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     NoopAnimationsModule // initally disabled
   ],
