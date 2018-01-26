@@ -7,16 +7,20 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class CustomerListComponent implements OnInit {
   @Input()  customers: any[];
-  @Output() addCustomer = new EventEmitter<any>();
+  @Output() addCustomer = new EventEmitter<string>();
+  @Output() removeCustomer = new EventEmitter<number>();
   
   customerName: string;
 
   constructor() { }
   
   addCustomerAction(){
-    debugger
     this.addCustomer.emit(this.customerName);
     this.customerName = '';
+  }
+
+  removedCustomerAction(id: number){
+    this.removeCustomer.emit(id);
   }
 
   ngOnInit() {
