@@ -1,8 +1,12 @@
 <mat-grid-list cols="2" rowHeight="2:1">
   <mat-grid-tile>
-    <bp-emp-list [employees]="folders"></bp-emp-list>
+    <bp-emp-list [employees]="folders">
+      Saving
+    </bp-emp-list>
   </mat-grid-tile>
   <mat-grid-tile>
-    <bp-emp-list [employees]="notes"></bp-emp-list>
+    <bp-emp-list [employees]="notes">
+      Current
+    </bp-emp-list>
   </mat-grid-tile>
 </mat-grid-list>

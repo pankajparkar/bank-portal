@@ -1,5 +1,7 @@
 <mat-list>
-  <h3 mat-subheader>Employee</h3>
+  <h3>
+    <ng-content></ng-content>
+  </h3>
   <mat-list-item *ngFor="let employee of employees">
     <mat-icon mat-list-icon>note</mat-icon>
     <h4 mat-line>{{employee.name}}</h4>
