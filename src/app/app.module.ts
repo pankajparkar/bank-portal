@@ -1,23 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { CustomMaterialModule } from './custom-material/custom-material.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { EmpListComponent } from './emp-list/emp-list.component';
+import { CustomerListComponent } from './customer-list/customer-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     DashboardComponent,
-    EmpListComponent
+    CustomerListComponent
   ],
   imports: [
     BrowserModule,
     CustomMaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
     NoopAnimationsModule // initally disabled
   ],
   providers: [],

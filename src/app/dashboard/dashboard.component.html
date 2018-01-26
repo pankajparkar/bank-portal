@@ -1,12 +1,12 @@
 <mat-grid-list cols="2" rowHeight="2:1">
   <mat-grid-tile>
-    <bp-emp-list [employees]="folders">
+    <bp-customer-list [customers]="savingAccountCustomers" (addCustomer)="addSavingAccountCustomer($event)">
       Saving
-    </bp-emp-list>
+    </bp-customer-list>
   </mat-grid-tile>
   <mat-grid-tile>
-    <bp-emp-list [employees]="notes">
+    <bp-customer-list [customers]="currentAccountCustomers" (addCustomer)="addCurrentAccountCustomer($event)">
       Current
-    </bp-emp-list>
+    </bp-customer-list>
   </mat-grid-tile>
 </mat-grid-list>

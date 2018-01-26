@@ -9,7 +9,7 @@ export class DashboardComponent implements OnInit {
 
   constructor() { }
 
-  folders = [
+  savingAccountCustomers = [
     {
       name: 'Photos',
       updated: new Date('1/1/16'),
@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit {
       updated: new Date('1/28/16'),
     }
   ];
-  notes = [
+  currentAccountCustomers = [
     {
       name: 'Vacation Itinerary',
       updated: new Date('2/20/16'),
@@ -33,6 +33,13 @@ export class DashboardComponent implements OnInit {
       updated: new Date('1/18/16'),
     }
   ];
+
+  addSavingAccountCustomer(empName){
+    this.savingAccountCustomers.push({name: empName, updated: new Date()});
+  }
+  addCurrentAccountCustomer(empName){
+    this.savingAccountCustomers.push({name: empName, updated: new Date()});
+  }
 
   ngOnInit() {
   }
