@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'bp-dashboard',
@@ -7,37 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  savingAccountCustomers: any[];
+  currentAccountCustomers: any[];
 
-  savingAccountCustomers = [
-    {
-      id: Math.random(),
-      name: 'Photos',
-      updated: new Date('1/1/16'),
-    },
-    {
-      id: Math.random(),
-      name: 'Recipes',
-      updated: new Date('1/17/16'),
-    },
-    {
-      id: Math.random(),
-      name: 'Work',
-      updated: new Date('1/28/16'),
-    }
-  ];
-  currentAccountCustomers = [
-    {
-      id: Math.random(),
-      name: 'Vacation Itinerary',
-      updated: new Date('2/20/16'),
-    },
-    {
-      id: Math.random(),
-      name: 'Kitchen Remodel',
-      updated: new Date('1/18/16'),
-    }
-  ];
+  constructor(private httpClient: HttpClient) { }
+
+  getCustomers(){
+    return this.httpClient.get('assets/api/customer-list.json').subscribe(
+      (data: any) => {
+        this.savingAccountCustomers = data.savingAccountCustomers;
+        this.currentAccountCustomers = data.currentAccountCustomers;
+      }
+    );
+  }
 
   createCustomer(empName: string){
     return {name: empName, updated: new Date(), id: Math.random()};
@@ -60,6 +43,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getCustomers();
   }
 
 }

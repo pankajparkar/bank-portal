@@ -1,16 +1,10 @@
-<mat-grid-list cols="2" rowHeight="2:1">
-  <mat-grid-tile>
-    <bp-customer-list [customers]="savingAccountCustomers" 
-      (addCustomer)="addSavingAccountCustomer($event)"
-      (removeCustomer)="removeSavingAccountCustomer($event)">
-        Saving A/C
-    </bp-customer-list>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <bp-customer-list [customers]="currentAccountCustomers" 
-      (addCustomer)="addCurrentAccountCustomer($event)"
-      (removeCustomer)="removeCurrentAccountCustomer($event)">
-        Current A/C
-    </bp-customer-list>
-  </mat-grid-tile>
-</mat-grid-list>
+<bp-customer-list [customers]="savingAccountCustomers" 
+  (addCustomer)="addSavingAccountCustomer($event)"
+  (removeCustomer)="removeSavingAccountCustomer($event)">
+    Saving A/C
+</bp-customer-list>
+<bp-customer-list [customers]="currentAccountCustomers" 
+  (addCustomer)="addCurrentAccountCustomer($event)"
+  (removeCustomer)="removeCurrentAccountCustomer($event)">
+    Current A/C
+</bp-customer-list>

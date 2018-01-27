@@ -1,0 +1,76 @@
+{
+    "savingAccountCustomers": [
+        {
+            "id": 1,
+            "name": "Photos",
+            "updated": "564564564564564"
+        },
+        {
+            "id": 2,
+            "name": "Recipes",
+            "updated": 213123123
+        },
+        {
+            "id": 3,
+            "name": "Work",
+            "updated": 123131312
+        },
+        {
+            "id": 4,
+            "name": "Photos",
+            "updated": "564564564564564"
+        },
+        {
+            "id": 5,
+            "name": "Recipes",
+            "updated": 213123123
+        },
+        {
+            "id": 6,
+            "name": "Work",
+            "updated": 123131312
+        },
+        {
+            "id": 7,
+            "name": "Photos",
+            "updated": "564564564564564"
+        },
+        {
+            "id": 8,
+            "name": "Recipes",
+            "updated": 213123123
+        }
+  ],
+  "currentAccountCustomers" : [
+        {
+            "id": 4,
+            "name": "Vacation Itinerary",
+            "updated": 123123123
+        },
+        {
+            "id": 5,
+            "name": "Kitchen Remodel",
+            "updated": 657567657
+        },
+        {
+            "id": 9,
+            "name": "Work",
+            "updated": 123131312
+        },
+        {
+            "id": 10,
+            "name": "Photos",
+            "updated": "564564564564564"
+        },
+        {
+            "id": 11,
+            "name": "Recipes",
+            "updated": 213123123
+        },
+        {
+            "id": 12,
+            "name": "Work",
+            "updated": 123131312
+        }
+  ]
+}
