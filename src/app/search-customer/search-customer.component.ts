@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'bp-search-customer',
@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchCustomerComponent implements OnInit {
 
+  @Output() searchChaned = new EventEmitter<string>();
+
   constructor() { }
+
+  inputChangedAction(query: string){
+    this.searchChaned.emit(query);
+  }
 
   ngOnInit() {
   }

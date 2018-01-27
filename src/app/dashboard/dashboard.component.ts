@@ -31,6 +31,10 @@ export class DashboardComponent implements OnInit {
     );
   }
 
+  searchChanged(query: string){
+    console.log(query);
+  }
+
   createCustomer(empName: string){
     return {name: empName, updated: new Date(), id: Math.random()};
   }
