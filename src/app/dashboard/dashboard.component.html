@@ -1,5 +1,6 @@
 <bp-customer-list [customers]="savingAccountCustomers" 
   (addCustomer)="addSavingAccountCustomer($event)"
+  (openDialog)="openSaveCustDialog($event)"
   (removeCustomer)="removeSavingAccountCustomer($event)">
     <span class="title">Saving A/C</span>
     <span class="message">
@@ -8,6 +9,7 @@
 </bp-customer-list>
 <bp-customer-list [customers]="currentAccountCustomers" 
   (addCustomer)="addCurrentAccountCustomer($event)"
+  (openDialog)="openCurrentCustDialog($event)"
   (removeCustomer)="removeCurrentAccountCustomer($event)">
     <span class="title">Current A/C</span>
     <span class="message">

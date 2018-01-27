@@ -9,6 +9,7 @@ export class CustomerListComponent implements OnInit {
   @Input()  customers: any[];
   @Output() addCustomer = new EventEmitter<string>();
   @Output() removeCustomer = new EventEmitter<number>();
+  @Output() openDialog = new EventEmitter<number>();
   
   customerName: string;
 
@@ -21,6 +22,10 @@ export class CustomerListComponent implements OnInit {
 
   removedCustomerAction(id: number){
     this.removeCustomer.emit(id);
+  }
+
+  openDialogAction(customer){
+    this.openDialog.emit(customer);
   }
 
   ngOnInit() {

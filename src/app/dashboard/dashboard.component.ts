@@ -43,6 +43,14 @@ export class DashboardComponent implements OnInit {
     this.currentAccountCustomers = this.currentAccountCustomers.filter(person => person.id !== id);
   }
 
+  openSaveCustDialog(){
+
+  }
+
+  openCurrentCustDialog(){
+    
+  }
+
   ngOnInit() {
     this.getCustomers();
   }

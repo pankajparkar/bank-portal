@@ -10,13 +10,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import { CustomerListService } from './services/customer-list.service';
+import { CustomerDialogComponent } from './customer-list/customer-dialog/customer-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     DashboardComponent,
-    CustomerListComponent
+    CustomerListComponent,
+    CustomerDialogComponent
   ],
   imports: [
     BrowserModule,
