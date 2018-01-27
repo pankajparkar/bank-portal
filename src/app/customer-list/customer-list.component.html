@@ -3,7 +3,7 @@
     <ng-content></ng-content>
   </h3>
   <mat-form-field class="example-form-field">
-    <input matInput type="text" placeholder="Clearable input" [(ngModel)]="customerName" (key.enter)="addCustomerAction()"/>
+    <input matInput type="text" placeholder="Enter customer name" [(ngModel)]="customerName" (key.enter)="addCustomerAction()"/>
     <button mat-button *ngIf="customerName" matSuffix mat-icon-button aria-label="Clear" (click)="customerName=''">
       <mat-icon>close</mat-icon>
     </button>
@@ -20,6 +20,10 @@
     </button>
   </mat-list-item>
   <mat-list-item *ngIf="!customers?.length">
-    <p mat-line> No customer(s).</p>
+    <p mat-line> 
+      No 
+      <ng-content></ng-content> 
+      customer(s).
+    </p>
   </mat-list-item>
 </mat-list>

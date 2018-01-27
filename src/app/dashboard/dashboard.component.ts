@@ -44,10 +44,11 @@ export class DashboardComponent implements OnInit {
   }
 
   addSavingAccountCustomer(empName: string){
-    this.currentAccountCustomers.push(this.createCustomer(empName));
-  }
-  addCurrentAccountCustomer(empName: string){
     this.savingAccountCustomers.push(this.createCustomer(empName));
+  }
+  
+  addCurrentAccountCustomer(empName: string){
+    this.currentAccountCustomers.push(this.createCustomer(empName));
   }
 
   removeSavingAccountCustomer(id: number){

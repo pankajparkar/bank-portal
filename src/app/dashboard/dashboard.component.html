@@ -3,14 +3,14 @@
     <bp-customer-list [customers]="savingAccountCustomers" 
       (addCustomer)="addSavingAccountCustomer($event)"
       (removeCustomer)="removeSavingAccountCustomer($event)">
-        Saving
+        Saving A/C
     </bp-customer-list>
   </mat-grid-tile>
   <mat-grid-tile>
     <bp-customer-list [customers]="currentAccountCustomers" 
       (addCustomer)="addCurrentAccountCustomer($event)"
       (removeCustomer)="removeCurrentAccountCustomer($event)">
-        Current
+        Current A/C
     </bp-customer-list>
   </mat-grid-tile>
 </mat-grid-list>
