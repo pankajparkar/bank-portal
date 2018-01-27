@@ -8,6 +8,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 })
 export class CustomerDialogComponent implements OnInit {
   @Input() customer: any;
+  customerCopy: any;
 
   constructor(
     public dialogRef: MatDialogRef<CustomerDialogComponent>,
@@ -18,6 +19,6 @@ export class CustomerDialogComponent implements OnInit {
   }
 
   ngOnInit(){
-    
+    this.customerCopy = Object.assign({}, this.customer);
   }
 }

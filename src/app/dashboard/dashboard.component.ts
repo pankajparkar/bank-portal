@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSnackBar } from '@angular/material';
 
 import { CustomerListService } from '../services/customer-list.service';
 import { CustomerDialogComponent } from '../customer-list/customer-dialog/customer-dialog.component';
@@ -17,7 +17,8 @@ export class DashboardComponent implements OnInit {
 
   constructor(
       private customerListService: CustomerListService,
-      private dialog: MatDialog 
+      private dialog: MatDialog,
+      private snackBar: MatSnackBar
     ) { }
 
   getCustomers(){
@@ -54,13 +55,23 @@ export class DashboardComponent implements OnInit {
     dialog.componentInstance.customer = customer;
     dialog.afterClosed().subscribe((updatedCustomer: any) => {
       let currentCustomerIndex = this.savingAccountCustomers.findIndex(c => c.id === customer.id);
-      updatedCustomer.name = updatedCustomer;
-      this.savingAccountCustomers[currentCustomerIndex] = Object.assign({}, updatedCustomer)
+      this.savingAccountCustomers[currentCustomerIndex] = Object.assign({}, updatedCustomer);
+      this.snackBar.open('Customer saved successfully.', 'Ok', {
+        duration: 2000,
+      });
     });
   }
 
   openCurrentCustDialog(customer: any){
-    console.log(customer);
+    let dialog = this.dialog.open(CustomerDialogComponent);
+    dialog.componentInstance.customer = customer;
+    dialog.afterClosed().subscribe((updatedCustomer: any) => {
+      let currentCustomerIndex = this.currentAccountCustomers.findIndex(c => c.id === customer.id);
+      this.currentAccountCustomers[currentCustomerIndex] = Object.assign({}, updatedCustomer);
+      this.snackBar.open('Customer saved successfully.', 'Ok', {
+        duration: 2000,
+      });
+    });
   }
 
   ngOnInit() {
