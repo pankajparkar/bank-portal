@@ -18,6 +18,7 @@ import { CustomerDialogComponent } from './customer-list/customer-dialog/custome
     NavbarComponent,
     DashboardComponent,
     CustomerListComponent,
+    CustomerDialogComponent,
     CustomerDialogComponent
   ],
   imports: [
@@ -32,6 +33,7 @@ import { CustomerDialogComponent } from './customer-list/customer-dialog/custome
   providers: [
     CustomerListService
   ],
+  entryComponents: [CustomerDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

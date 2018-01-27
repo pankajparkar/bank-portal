@@ -1,3 +1,10 @@
-<p>
-  customer-dialog works!
-</p>
+<h2 mat-dialog-title>Customer - {{customer.name}}</h2>
+<mat-dialog-content>
+    INput fields to be added here
+</mat-dialog-content>
+<mat-divider></mat-divider>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>No</button>
+  <!-- Can optionally provide a result for the closing dialog. -->
+  <button mat-button [mat-dialog-close]="true" (click)="dialogRef.close(customer)">Yes</button>
+</mat-dialog-actions>

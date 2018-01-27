@@ -15,7 +15,7 @@
   </center>
   <mat-divider></mat-divider>
   <mat-list-item *ngFor="let customer of customers">
-    <mat-icon mat-list-icon (click)="openDialog()">mode_edit</mat-icon>
+    <mat-icon mat-list-icon (click)="openDialogAction(customer)">mode_edit</mat-icon>
     <h4 mat-line>{{customer.name}}</h4>
     <p mat-line> {{customer.updated | date}} </p>
     <button mat-icon-button (click)="removedCustomerAction(customer.id)">

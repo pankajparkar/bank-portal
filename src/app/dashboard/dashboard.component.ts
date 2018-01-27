@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { MatDialog } from '@angular/material';
+
 import { CustomerListService } from '../services/customer-list.service';
+import { CustomerDialogComponent } from '../customer-list/customer-dialog/customer-dialog.component';
 
 @Component({
   selector: 'bp-dashboard',
@@ -12,7 +15,10 @@ export class DashboardComponent implements OnInit {
   savingAccountCustomers: any[];
   currentAccountCustomers: any[];
 
-  constructor(private customerListService: CustomerListService) { }
+  constructor(
+      private customerListService: CustomerListService,
+      private dialog: MatDialog 
+    ) { }
 
   getCustomers(){
     return this.customerListService.getCustomers().subscribe(
@@ -43,12 +49,18 @@ export class DashboardComponent implements OnInit {
     this.currentAccountCustomers = this.currentAccountCustomers.filter(person => person.id !== id);
   }
 
-  openSaveCustDialog(){
-
+  openSaveCustDialog(customer: any){
+    let dialog = this.dialog.open(CustomerDialogComponent);
+    dialog.componentInstance.customer = customer;
+    dialog.afterClosed().subscribe((updatedCustomer: any) => {
+      let currentCustomerIndex = this.savingAccountCustomers.findIndex(c => c.id === customer.id);
+      updatedCustomer.name = updatedCustomer;
+      this.savingAccountCustomers[currentCustomerIndex] = Object.assign({}, updatedCustomer)
+    });
   }
 
-  openCurrentCustDialog(){
-    
+  openCurrentCustDialog(customer: any){
+    console.log(customer);
   }
 
   ngOnInit() {

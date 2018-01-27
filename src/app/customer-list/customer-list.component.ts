@@ -9,7 +9,7 @@ export class CustomerListComponent implements OnInit {
   @Input()  customers: any[];
   @Output() addCustomer = new EventEmitter<string>();
   @Output() removeCustomer = new EventEmitter<number>();
-  @Output() openDialog = new EventEmitter<number>();
+  @Output() openDialog = new EventEmitter<any>();
   
   customerName: string;
 
