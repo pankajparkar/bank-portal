@@ -1,10 +1,16 @@
 <bp-customer-list [customers]="savingAccountCustomers" 
   (addCustomer)="addSavingAccountCustomer($event)"
   (removeCustomer)="removeSavingAccountCustomer($event)">
-    Saving A/C
+    <span class="title">Saving A/C</span>
+    <span class="message">
+      No Saving A/C(s).
+    </span>
 </bp-customer-list>
 <bp-customer-list [customers]="currentAccountCustomers" 
   (addCustomer)="addCurrentAccountCustomer($event)"
   (removeCustomer)="removeCurrentAccountCustomer($event)">
-    Current A/C
+    <span class="title">Current A/C</span>
+    <span class="message">
+      Current A/C(s).
+    </span>
 </bp-customer-list>

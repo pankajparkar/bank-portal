@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { CustomerListService } from '../services/customer-list.service';
 
 @Component({
   selector: 'bp-dashboard',
@@ -11,10 +12,10 @@ export class DashboardComponent implements OnInit {
   savingAccountCustomers: any[];
   currentAccountCustomers: any[];
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private customerListService: CustomerListService) { }
 
   getCustomers(){
-    return this.httpClient.get('assets/api/customer-list.json').subscribe(
+    return this.customerListService.getCustomers().subscribe(
       (data: any) => {
         this.savingAccountCustomers = data.savingAccountCustomers;
         this.currentAccountCustomers = data.currentAccountCustomers;

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -9,6 +9,7 @@ import { CustomMaterialModule } from './custom-material/custom-material.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomerListComponent } from './customer-list/customer-list.component';
+import { CustomerListService } from './services/customer-list.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,10 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
     ReactiveFormsModule,
     NoopAnimationsModule // initally disabled
   ],
-  providers: [],
+  schemas: [NO_ERRORS_SCHEMA],
+  providers: [
+    CustomerListService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

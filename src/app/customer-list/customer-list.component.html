@@ -1,16 +1,19 @@
 <mat-list>
-  <h3>
-    <ng-content></ng-content>
-  </h3>
-  <mat-form-field class="example-form-field">
-    <input matInput type="text" placeholder="Enter customer name" [(ngModel)]="customerName" (keyup.enter)="addCustomerAction()"/>
-    <button mat-button *ngIf="customerName" matSuffix mat-icon-button aria-label="Clear" (click)="customerName=''">
-      <mat-icon>close</mat-icon>
+  <center>
+      <h3>
+        <ng-content select=".title"></ng-content>
+      </h3>
+      <mat-form-field class="example-form-field">
+        <input matInput type="text" placeholder="Enter customer name" [(ngModel)]="customerName" (keyup.enter)="addCustomerAction()"/>
+        <button mat-button *ngIf="customerName" matSuffix mat-icon-button aria-label="Clear" (click)="customerName=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    <button mat-mini-fab color="primary" (click)="addCustomerAction()">
+      <mat-icon>add</mat-icon>
     </button>
-  </mat-form-field>
-  <button mat-mini-fab color="primary" (click)="addCustomerAction()">
-    <mat-icon>add</mat-icon>
-  </button>
+  </center>
+  <mat-divider></mat-divider>
   <mat-list-item *ngFor="let customer of customers">
     <mat-icon mat-list-icon>note</mat-icon>
     <h4 mat-line>{{customer.name}}</h4>
@@ -21,9 +24,7 @@
   </mat-list-item>
   <mat-list-item *ngIf="!customers?.length">
     <p mat-line> 
-      No 
-      <ng-content></ng-content> 
-      customer(s).
+      <ng-content select=".message"></ng-content> 
     </p>
   </mat-list-item>
 </mat-list>
