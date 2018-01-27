@@ -4,6 +4,7 @@ import { MatDialog, MatSnackBar } from '@angular/material';
 
 import { CustomerListService } from '../services/customer-list.service';
 import { CustomerDialogComponent } from '../customer-list/customer-dialog/customer-dialog.component';
+import { ConfirmDeleteDialogComponent } from '../confirm-delete-dialog/confirm-delete-dialog.component';
 
 @Component({
   selector: 'bp-dashboard',
@@ -43,11 +44,30 @@ export class DashboardComponent implements OnInit {
   }
 
   removeSavingAccountCustomer(id: number){
-    this.savingAccountCustomers = this.savingAccountCustomers.filter(person => person.id !== id);
+    let dialog = this.dialog.open(ConfirmDeleteDialogComponent);
+    dialog.componentInstance.customer = this.savingAccountCustomers.filter(person => person.id === id)[0];
+    dialog.afterClosed().subscribe((tobeDeleted: boolean) => {
+      if(tobeDeleted){
+        this.savingAccountCustomers = this.savingAccountCustomers.filter(person => person.id !== id);
+        this.snackBar.open('Customer deleted successfully.', 'Ok', {
+          duration: 2000,
+        });
+      }
+    });
   }
   
   removeCurrentAccountCustomer(id: number){
-    this.currentAccountCustomers = this.currentAccountCustomers.filter(person => person.id !== id);
+    let dialog = this.dialog.open(ConfirmDeleteDialogComponent);
+    dialog.componentInstance.customer = this.currentAccountCustomers.filter(person => person.id === id)[0];
+
+    dialog.afterClosed().subscribe((tobeDeleted: boolean) => {
+      if(tobeDeleted){
+      this.currentAccountCustomers = this.currentAccountCustomers.filter(person => person.id !== id);
+        this.snackBar.open('Customer deleted successfully.', 'Ok', {
+          duration: 2000,
+        });
+      }
+    });
   }
 
   openSaveCustDialog(customer: any){

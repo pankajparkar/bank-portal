@@ -12,6 +12,7 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
 import { CustomerListService } from './services/customer-list.service';
 import { CustomerDialogComponent } from './customer-list/customer-dialog/customer-dialog.component';
 import { UtilityService } from './services/utility.service';
+import { ConfirmDeleteDialogComponent } from './confirm-delete-dialog/confirm-delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UtilityService } from './services/utility.service';
     DashboardComponent,
     CustomerListComponent,
     CustomerDialogComponent,
-    CustomerDialogComponent
+    CustomerDialogComponent,
+    ConfirmDeleteDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,7 @@ import { UtilityService } from './services/utility.service';
     CustomerListService,
     UtilityService
   ],
-  entryComponents: [CustomerDialogComponent],
+  entryComponents: [CustomerDialogComponent, ConfirmDeleteDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

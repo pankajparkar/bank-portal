@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, Input } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'bp-customer-dialog',
@@ -11,8 +11,8 @@ export class CustomerDialogComponent implements OnInit {
   customerCopy: any;
 
   constructor(
-    public dialogRef: MatDialogRef<CustomerDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+    public dialogRef: MatDialogRef<CustomerDialogComponent>
+  ) { }
 
   onNoClick(): void {
     this.dialogRef.close(this.customer);

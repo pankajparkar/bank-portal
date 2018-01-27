@@ -1,0 +1,6 @@
+<h2 mat-dialog-title>Delete Customer {{customer.name}}</h2>
+<mat-dialog-content>Are you sure?</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="dialogRef.close(true)">Yes</button>
+  <button mat-button (click)="dialogRef.close(false)">No</button>
+</mat-dialog-actions>
