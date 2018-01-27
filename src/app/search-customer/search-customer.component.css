@@ -1,0 +1,12 @@
+:host{
+    flex: 0 0 100%; 
+}
+
+.search-customer-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-customer-container > * {
+    width: 100%;
+}

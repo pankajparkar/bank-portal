@@ -13,6 +13,7 @@ import { CustomerListService } from './services/customer-list.service';
 import { CustomerDialogComponent } from './customer-list/customer-dialog/customer-dialog.component';
 import { UtilityService } from './services/utility.service';
 import { ConfirmDeleteDialogComponent } from './confirm-delete-dialog/confirm-delete-dialog.component';
+import { SearchCustomerComponent } from './search-customer/search-customer.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ConfirmDeleteDialogComponent } from './confirm-delete-dialog/confirm-de
     CustomerListComponent,
     CustomerDialogComponent,
     CustomerDialogComponent,
-    ConfirmDeleteDialogComponent
+    ConfirmDeleteDialogComponent,
+    SearchCustomerComponent
   ],
   imports: [
     BrowserModule,
