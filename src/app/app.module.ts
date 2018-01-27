@@ -11,6 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import { CustomerListService } from './services/customer-list.service';
 import { CustomerDialogComponent } from './customer-list/customer-dialog/customer-dialog.component';
+import { UtilityService } from './services/utility.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CustomerDialogComponent } from './customer-list/customer-dialog/custome
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [
-    CustomerListService
+    CustomerListService,
+    UtilityService
   ],
   entryComponents: [CustomerDialogComponent],
   bootstrap: [AppComponent]

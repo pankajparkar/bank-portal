@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { UtilityService } from '../services/utility.service';
 
 @Component({
   selector: 'bp-customer-list',
@@ -13,11 +14,15 @@ export class CustomerListComponent implements OnInit {
   
   customerName: string;
 
-  constructor() { }
+  constructor(private utilityService: UtilityService) { }
   
   addCustomerAction(){
     this.addCustomer.emit(this.customerName);
     this.customerName = '';
+  }
+
+  calculateBalance(balance: number){
+    return this.utilityService.calculateBalance(balance);
   }
 
   removedCustomerAction(id: number){

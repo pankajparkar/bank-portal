@@ -24,8 +24,8 @@ export class DashboardComponent implements OnInit {
   getCustomers(){
     return this.customerListService.getCustomers().subscribe(
       (data: any) => {
-        this.savingAccountCustomers = data.savingAccountCustomers;
-        this.currentAccountCustomers = data.currentAccountCustomers;
+        this.savingAccountCustomers = data.filter(c => c.type === "Saving");
+        this.currentAccountCustomers = data.filter(c => c.type === "Current");;
       }
     );
   }
