@@ -3,7 +3,7 @@
     <ng-content></ng-content>
   </h3>
   <mat-form-field class="example-form-field">
-    <input matInput type="text" placeholder="Enter customer name" [(ngModel)]="customerName" (key.enter)="addCustomerAction()"/>
+    <input matInput type="text" placeholder="Enter customer name" [(ngModel)]="customerName" (keyup.enter)="addCustomerAction()"/>
     <button mat-button *ngIf="customerName" matSuffix mat-icon-button aria-label="Clear" (click)="customerName=''">
       <mat-icon>close</mat-icon>
     </button>
