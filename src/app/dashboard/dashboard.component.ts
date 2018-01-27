@@ -22,17 +22,22 @@ export class DashboardComponent implements OnInit {
       private snackBar: MatSnackBar
     ) { }
 
+  assignDataSets(res: any[]){
+    
+  }
+
   getCustomers(){
     return this.customerListService.getCustomers().subscribe(
       (data: any) => {
         this.savingAccountCustomers = data.filter(c => c.type === "Saving");
-        this.currentAccountCustomers = data.filter(c => c.type === "Current");;
+        this.currentAccountCustomers = data.filter(c => c.type === "Current");
       }
     );
   }
 
   searchChanged(query: string){
-    console.log(query);
+    this.savingAccountCustomers = this.savingAccountCustomers.filter(c => c.type === "Saving" && query === c.name);
+    this.currentAccountCustomers = this.currentAccountCustomers.filter(c => c.type === "Current" && query === c.name);
   }
 
   createCustomer(empName: string){
