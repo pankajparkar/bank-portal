@@ -10,3 +10,7 @@
 .selected-customer{
     background: #d0d6d69e;
 }
+
+.mat-chip:not(.mat-basic-chip){
+    padding: 2px 6px;
+}

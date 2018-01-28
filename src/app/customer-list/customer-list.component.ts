@@ -10,7 +10,8 @@ export class CustomerListComponent implements OnInit {
   @Input()  customers: any[];
   @Output() addCustomer = new EventEmitter<string>();
   @Output() removeCustomer = new EventEmitter<number>();
-  @Output() openDialog = new EventEmitter<any>();
+  @Output() openDialog = new EventEmitter<Customer>();
+  @Output() selectCustomer = new EventEmitter<Customer>();
   
   customerName: string;
 
@@ -26,18 +27,14 @@ export class CustomerListComponent implements OnInit {
   }
 
   removedCustomerAction(id: number, event: Event){
-    event.preventDefault();
-    event.stopPropagation();
     this.removeCustomer.emit(id);
   }
 
-  selectCustomer(customer: any){
-
+  selectCustomerAction(customer: any){
+    this.selectCustomer.emit(customer);
   }
 
   openDialogAction(customer: Customer, event: Event){
-    event.preventDefault();
-    event.stopPropagation();
     this.openDialog.emit(customer);
   }
 

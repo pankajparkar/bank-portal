@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ComponentFactoryResolver, ViewChild, ViewContainerRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog, MatSnackBar } from '@angular/material';
 
 import { CustomerListService } from '../services/customer-list.service';
 import { CustomerDialogComponent } from '../customer-dialog/customer-dialog.component';
 import { ConfirmDeleteDialogComponent } from '../confirm-delete-dialog/confirm-delete-dialog.component';
-import { debug } from 'util';
+import { CustomerCardComponent } from '../customer-card/customer-card.component';
 
 const SAVE_ACCOUNT = 'Saving';
 const CURRENT_ACCOUNT = 'Current';
@@ -23,9 +23,12 @@ export class DashboardComponent implements OnInit {
   currentAccountCustomers: Customer[];
   originalData: Customer[];
 
+  @ViewChild('showSelectedCustomer', {read: ViewContainerRef}) showSelectedCustomer: ViewContainerRef;
+
   constructor(
       private customerListService: CustomerListService,
       private dialog: MatDialog,
+      private componentFactoryResolver: ComponentFactoryResolver,
       private snackBar: MatSnackBar
     ) { }
 
@@ -110,6 +113,24 @@ export class DashboardComponent implements OnInit {
         duration: 2000,
       });
     });
+  }
+
+  loadComponent(customer: Customer) {
+    // this.currentAddIndex = (this.currentAddIndex + 1) % this.ads.length;
+    // let adItem = this.ads[this.currentAddIndex];
+    let componentFactory = this.componentFactoryResolver.resolveComponentFactory(CustomerCardComponent);
+
+    let viewContainerRef = this.showSelectedCustomer;
+    viewContainerRef.clear();
+
+    let componentRef = viewContainerRef.createComponent(componentFactory);
+    (<CustomerCardComponent>componentRef.instance).customer = customer;
+  }
+  
+
+  selectCustomer(customer: Customer){
+    //add dynamic component
+    this.loadComponent(customer);
   }
 
   ngOnInit() {

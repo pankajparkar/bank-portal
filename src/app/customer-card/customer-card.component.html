@@ -1,0 +1,16 @@
+<mat-card class="customer-card">
+  <mat-card-header>
+    <button mat-icon-button class="customer-close-button">
+      <mat-icon>close</mat-icon>
+    </button>
+    <div mat-card-avatar class="customer-header-image"></div>
+    <mat-card-title>{{customer.name}}</mat-card-title>
+    <mat-card-subtitle>{{customer.type}} A/C</mat-card-subtitle>
+  </mat-card-header>
+  <!-- <img mat-card-image src="http://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+  <mat-card-content>
+    <p>
+      Total Balance {{calculate(customer.balance) | number: '.0-0'}}
+    </p>
+  </mat-card-content>
+</mat-card>

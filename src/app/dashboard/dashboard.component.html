@@ -2,6 +2,7 @@
 <bp-customer-list [customers]="savingAccountCustomers" 
   (addCustomer)="addSavingAccountCustomer($event)"
   (openDialog)="openSaveCustDialog($event)"
+  (selectCustomer)="selectCustomer($event)"
   (removeCustomer)="removeSavingAccountCustomer($event)">
     <span class="title">Saving A/C</span>
     <span class="message">
@@ -11,9 +12,11 @@
 <bp-customer-list [customers]="currentAccountCustomers" 
   (addCustomer)="addCurrentAccountCustomer($event)"
   (openDialog)="openCurrentCustDialog($event)"
+  (selectCustomer)="selectCustomer($event)"
   (removeCustomer)="removeCurrentAccountCustomer($event)">
     <span class="title">Current A/C</span>
     <span class="message">
       Current A/C(s).
     </span>
 </bp-customer-list>
+<ng-container #showSelectedCustomer></ng-container>
