@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { MatDialog, MatSnackBar } from '@angular/material';
 
 import { CustomerListService } from '../services/customer-list.service';
-import { CustomerDialogComponent } from '../customer-list/customer-dialog/customer-dialog.component';
+import { CustomerDialogComponent } from '../customer-dialog/customer-dialog.component';
 import { ConfirmDeleteDialogComponent } from '../confirm-delete-dialog/confirm-delete-dialog.component';
 
 @Component({
