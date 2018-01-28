@@ -1,5 +1,6 @@
 <bp-search-customer (searchChaned)="searchChanged($event)"></bp-search-customer>
 <bp-customer-list [customers]="savingAccountCustomers" 
+  [searchTerm]="searchTerm"
   (addCustomer)="addSavingAccountCustomer($event)"
   (openDialog)="openSaveCustDialog($event)"
   (selectCustomer)="selectCustomer($event)"
@@ -10,6 +11,7 @@
     </span>
 </bp-customer-list>
 <bp-customer-list [customers]="currentAccountCustomers" 
+  [searchTerm]="searchTerm"
   (addCustomer)="addCurrentAccountCustomer($event)"
   (openDialog)="openCurrentCustDialog($event)"
   (selectCustomer)="selectCustomer($event)"

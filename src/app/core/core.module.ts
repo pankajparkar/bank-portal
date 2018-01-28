@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CustomMaterialModule } from '../custom-material/custom-material.module';
-import { NavbarComponent } from '../navbar/navbar.component';
+import { HighlightPipe } from './pipes/highlight.pipe';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   imports: [
@@ -10,10 +11,12 @@ import { NavbarComponent } from '../navbar/navbar.component';
     CommonModule
   ],
   declarations: [
-    NavbarComponent
+    NavbarComponent,
+    HighlightPipe
   ],
   exports: [
     NavbarComponent,
+    HighlightPipe,
     CustomMaterialModule
   ]
 })

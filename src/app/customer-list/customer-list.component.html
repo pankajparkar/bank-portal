@@ -20,7 +20,10 @@
     [ngClass]="{'focus-item': customer.focused}" >
     <mat-icon class="action" mat-list-icon (click)="openDialogAction(customer)">mode_edit</mat-icon>
     <h4 mat-line>
-      <a class="action" (click)="selectCustomerAction(customer)">{{customer.name}}</a>
+      <a class="action" 
+        (click)="selectCustomerAction(customer)" 
+        [innerHTML]="customer.name | highlight: searchTerm">
+      </a>
     </h4>
     <p mat-line> 
       <mat-chip-list>

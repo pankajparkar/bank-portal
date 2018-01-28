@@ -8,6 +8,7 @@ import { UtilityService } from '../core/services/utility.service';
 })
 export class CustomerListComponent implements OnInit {
   @Input()  customers: any[];
+  @Input()  searchTerm: string;
   @Output() addCustomer = new EventEmitter<string>();
   @Output() removeCustomer = new EventEmitter<number>();
   @Output() openDialog = new EventEmitter<Customer>();

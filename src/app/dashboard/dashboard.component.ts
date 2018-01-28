@@ -22,6 +22,7 @@ export class DashboardComponent implements OnInit {
   savingAccountCustomers: Customer[];
   currentAccountCustomers: Customer[];
   originalData: Customer[];
+  searchTerm: string;
 
   @ViewChild('showSelectedCustomer', {read: ViewContainerRef}) showSelectedCustomer: ViewContainerRef;
 
@@ -43,6 +44,7 @@ export class DashboardComponent implements OnInit {
   }
 
   searchChanged(query: string){
+    this.searchTerm = query;
     query = (query || '').toLowerCase();
     this.savingAccountCustomers = this.originalData.filter((c: any)=> 
       c.type === SAVE_ACCOUNT && ~c.name.toLowerCase().indexOf(query)
