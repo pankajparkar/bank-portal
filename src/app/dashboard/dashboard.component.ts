@@ -5,6 +5,7 @@ import { MatDialog, MatSnackBar } from '@angular/material';
 import { CustomerListService } from '../services/customer-list.service';
 import { CustomerDialogComponent } from '../customer-dialog/customer-dialog.component';
 import { ConfirmDeleteDialogComponent } from '../confirm-delete-dialog/confirm-delete-dialog.component';
+import { debug } from 'util';
 
 @Component({
   selector: 'bp-dashboard',
@@ -66,10 +67,9 @@ export class DashboardComponent implements OnInit {
   removeCurrentAccountCustomer(id: number){
     let dialog = this.dialog.open(ConfirmDeleteDialogComponent);
     dialog.componentInstance.customer = this.currentAccountCustomers.filter(person => person.id === id)[0];
-
     dialog.afterClosed().subscribe((tobeDeleted: boolean) => {
       if(tobeDeleted){
-      this.currentAccountCustomers = this.currentAccountCustomers.filter(person => person.id !== id);
+        this.currentAccountCustomers = this.currentAccountCustomers.filter(person => person.id !== id);
         this.snackBar.open('Customer deleted successfully.', 'Ok', {
           duration: 2000,
         });
@@ -81,6 +81,7 @@ export class DashboardComponent implements OnInit {
     let dialog = this.dialog.open(CustomerDialogComponent);
     dialog.componentInstance.customer = customer;
     dialog.afterClosed().subscribe((updatedCustomer: any) => {
+      if(!updatedCustomer) return;
       let currentCustomerIndex = this.savingAccountCustomers.findIndex(c => c.id === customer.id);
       this.savingAccountCustomers[currentCustomerIndex] = Object.assign({}, updatedCustomer);
       this.snackBar.open('Customer saved successfully.', 'Ok', {
@@ -93,6 +94,7 @@ export class DashboardComponent implements OnInit {
     let dialog = this.dialog.open(CustomerDialogComponent);
     dialog.componentInstance.customer = customer;
     dialog.afterClosed().subscribe((updatedCustomer: any) => {
+      if(!updatedCustomer) return;
       let currentCustomerIndex = this.currentAccountCustomers.findIndex(c => c.id === customer.id);
       this.currentAccountCustomers[currentCustomerIndex] = Object.assign({}, updatedCustomer);
       this.snackBar.open('Customer saved successfully.', 'Ok', {
