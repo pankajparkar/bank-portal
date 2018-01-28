@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CustomMaterialModule } from '../../custom-material/custom-material.module';
-import { NavbarComponent } from '../../navbar/navbar.component';
+import { CustomMaterialModule } from '../custom-material/custom-material.module';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @NgModule({
   imports: [

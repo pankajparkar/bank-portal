@@ -13,7 +13,7 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
 import { CustomerListService } from './services/customer-list.service';
 import { UtilityService } from './services/utility.service';
 import { AppRoutingModule } from './app-routing.module';
-import { CoreModule } from './core/core/core.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [

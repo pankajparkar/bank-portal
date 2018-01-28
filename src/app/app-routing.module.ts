@@ -16,7 +16,7 @@ import { AppComponent } from './app.component';
 //TODO: check why CustomMaterialModule and Core Module needed
 import { CustomMaterialModule } from './custom-material/custom-material.module';
 import { NavbarComponent } from './navbar/navbar.component';
-import { CoreModule } from './core/core/core.module';
+import { CoreModule } from './core/core.module';
 
 const routes = [
   {path: 'dashboard', component: DashboardComponent},
