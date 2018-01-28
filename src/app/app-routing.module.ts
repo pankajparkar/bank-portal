@@ -13,8 +13,6 @@ import { SearchCustomerComponent } from './search-customer/search-customer.compo
 import { CustomerCardComponent } from './customer-card/customer-card.component';
 
 import { AppComponent } from './app.component';
-//TODO: check why CustomMaterialModule and Core Module needed
-import { CustomMaterialModule } from './custom-material/custom-material.module';
 import { CoreModule } from './core/core.module';
 import { NavbarComponent } from './navbar/navbar.component';
 
@@ -36,8 +34,7 @@ const routes = [
   schemas: [NO_ERRORS_SCHEMA],
   imports: [
     BrowserModule,
-    // CoreModule,
-    CustomMaterialModule,
+    CoreModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
@@ -48,6 +45,6 @@ const routes = [
     ConfirmDeleteDialogComponent,
     CustomerCardComponent
   ],
-  exports: [RouterModule]
+  exports: [RouterModule, CoreModule]
 })
 export class AppRoutingModule { }

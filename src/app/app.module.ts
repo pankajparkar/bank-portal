@@ -18,11 +18,8 @@ import { CoreModule } from './core/core.module';
 @NgModule({
   declarations: [
     AppComponent,
-    // NavbarComponent,
-    // DashboardComponent,
   ],
   imports: [
-    CoreModule, //TODO
     AppRoutingModule,
     NoopAnimationsModule // initally disabled
   ],

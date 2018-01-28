@@ -13,7 +13,8 @@ import { NavbarComponent } from '../navbar/navbar.component';
     NavbarComponent
   ],
   exports: [
-    NavbarComponent
+    NavbarComponent,
+    CustomMaterialModule
   ]
 })
 export class CoreModule { }
