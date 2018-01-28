@@ -15,7 +15,9 @@
   </center>
   <mat-divider></mat-divider>
   <mat-list-item *ngFor="let customer of customers" 
-    [ngClass]="{'selected-customer': customer.selected}" >
+    (mouseenter)="customer.focused = true" 
+    (mouseleave)="customer.focused = false" 
+    [ngClass]="{'focused': customer.focused}" >
     <mat-icon mat-list-icon (click)="openDialogAction(customer)">mode_edit</mat-icon>
     <h4 mat-line>
       <a (click)="selectCustomerAction(customer)">{{customer.name}}</a>
