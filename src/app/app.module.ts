@@ -7,14 +7,14 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { UtilityService } from './core/services/utility.service';
-import { DashboardModule } from './dashboard/dashboard.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
-    DashboardModule,
+    AppRoutingModule,
     NoopAnimationsModule // initally disabled
   ],
   schemas: [NO_ERRORS_SCHEMA],

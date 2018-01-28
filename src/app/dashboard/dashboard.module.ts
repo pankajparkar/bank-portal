@@ -2,7 +2,7 @@ import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Route } from '@angular/router';
 
 import { CoreModule } from '../core/core.module';
 import { DashboardComponent } from './dashboard.component';
@@ -13,10 +13,9 @@ import { CustomerCardComponent } from '../customer-card/customer-card.component'
 import { CustomerDialogComponent } from '../customer-dialog/customer-dialog.component';
 import { CustomerListService } from './services/customer-list.service';
 
-const routes = [
-  {path: 'dashboard', component: DashboardComponent},
-  {path: '**', redirectTo: 'dashboard'},
-]
+const routes: Route[] = [
+  {path: '', component: DashboardComponent}
+];
 
 @NgModule({
   declarations: [
@@ -35,7 +34,7 @@ const routes = [
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forChild(routes)
   ],
   providers: [CustomerListService],
   entryComponents: [
