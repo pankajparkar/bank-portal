@@ -7,6 +7,11 @@ import { CustomerDialogComponent } from '../customer-dialog/customer-dialog.comp
 import { ConfirmDeleteDialogComponent } from '../confirm-delete-dialog/confirm-delete-dialog.component';
 import { debug } from 'util';
 
+const SAVE_ACCOUNT = 'Saving';
+const CURRENT_ACCOUNT = 'Current';
+const SAVE_MESSAGE = 'Customer saved successfully.';
+const DELETE_MESSAGE = 'Customer deleted successfully.';
+
 @Component({
   selector: 'bp-dashboard',
   templateUrl: './dashboard.component.html',
@@ -28,15 +33,19 @@ export class DashboardComponent implements OnInit {
     return this.customerListService.getCustomers().subscribe(
       (data: any) => {
         this.originalData = data;
-        this.savingAccountCustomers = data.filter(c => c.type === "Saving");
-        this.currentAccountCustomers = data.filter(c => c.type === "Current");
+        this.savingAccountCustomers = data.filter(c => c.type === SAVE_ACCOUNT);
+        this.currentAccountCustomers = data.filter(c => c.type === CURRENT_ACCOUNT);
       }
     );
   }
 
   searchChanged(query: string){
-    this.savingAccountCustomers = this.originalData.filter((c: any)=> c.type === "Saving" && ~c.name.indexOf(query));
-    this.currentAccountCustomers = this.originalData.filter((c: any) => c.type === "Current" && ~c.name.indexOf(query));
+    this.savingAccountCustomers = this.originalData.filter((c: any)=> 
+      c.type === SAVE_ACCOUNT && ~c.name.indexOf(query)
+    );
+    this.currentAccountCustomers = this.originalData.filter((c: any) => 
+      c.type === CURRENT_ACCOUNT && ~c.name.indexOf(query)
+    );
   }
 
   createCustomer(empName: string, type: string){
@@ -44,11 +53,11 @@ export class DashboardComponent implements OnInit {
   }
 
   addSavingAccountCustomer(empName: string){
-    this.savingAccountCustomers.push(this.createCustomer(empName, 'Saving'));
+    this.savingAccountCustomers.push(this.createCustomer(empName, SAVE_ACCOUNT));
   }
   
   addCurrentAccountCustomer(empName: string){
-    this.currentAccountCustomers.push(this.createCustomer(empName, 'Current'));
+    this.currentAccountCustomers.push(this.createCustomer(empName, CURRENT_ACCOUNT));
   }
 
   removeSavingAccountCustomer(id: number){
@@ -57,7 +66,7 @@ export class DashboardComponent implements OnInit {
     dialog.afterClosed().subscribe((tobeDeleted: boolean) => {
       if(tobeDeleted){
         this.savingAccountCustomers = this.savingAccountCustomers.filter(person => person.id !== id);
-        this.snackBar.open('Customer deleted successfully.', 'Ok', {
+        this.snackBar.open(DELETE_MESSAGE, 'Ok', {
           duration: 2000,
         });
       }
@@ -70,7 +79,7 @@ export class DashboardComponent implements OnInit {
     dialog.afterClosed().subscribe((tobeDeleted: boolean) => {
       if(tobeDeleted){
         this.currentAccountCustomers = this.currentAccountCustomers.filter(person => person.id !== id);
-        this.snackBar.open('Customer deleted successfully.', 'Ok', {
+        this.snackBar.open(DELETE_MESSAGE, 'Ok', {
           duration: 2000,
         });
       }
@@ -84,7 +93,7 @@ export class DashboardComponent implements OnInit {
       if(!updatedCustomer) return;
       let currentCustomerIndex = this.savingAccountCustomers.findIndex(c => c.id === customer.id);
       this.savingAccountCustomers[currentCustomerIndex] = Object.assign({}, updatedCustomer);
-      this.snackBar.open('Customer saved successfully.', 'Ok', {
+      this.snackBar.open(SAVE_MESSAGE, 'Ok', {
         duration: 2000,
       });
     });
@@ -97,7 +106,7 @@ export class DashboardComponent implements OnInit {
       if(!updatedCustomer) return;
       let currentCustomerIndex = this.currentAccountCustomers.findIndex(c => c.id === customer.id);
       this.currentAccountCustomers[currentCustomerIndex] = Object.assign({}, updatedCustomer);
-      this.snackBar.open('Customer saved successfully.', 'Ok', {
+      this.snackBar.open(SAVE_MESSAGE, 'Ok', {
         duration: 2000,
       });
     });
