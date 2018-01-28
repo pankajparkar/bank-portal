@@ -17,10 +17,10 @@
   <mat-list-item *ngFor="let customer of customers" 
     (mouseenter)="customer.focused = true" 
     (mouseleave)="customer.focused = false" 
-    [ngClass]="{'focused': customer.focused}" >
-    <mat-icon mat-list-icon (click)="openDialogAction(customer)">mode_edit</mat-icon>
+    [ngClass]="{'focus-item': customer.focused}" >
+    <mat-icon class="action" mat-list-icon (click)="openDialogAction(customer)">mode_edit</mat-icon>
     <h4 mat-line>
-      <a (click)="selectCustomerAction(customer)">{{customer.name}}</a>
+      <a class="action" (click)="selectCustomerAction(customer)">{{customer.name}}</a>
     </h4>
     <p mat-line> 
       <mat-chip-list>
@@ -34,7 +34,7 @@
       <mat-icon aria-label="Delete">delete</mat-icon>
     </button>
   </mat-list-item>
-  <mat-list-item *ngIf="!customers?.length">
+  <mat-list-item *ngIf="customers?.length === 0">
     <p mat-line> 
       <ng-content select=".message"></ng-content> 
     </p>

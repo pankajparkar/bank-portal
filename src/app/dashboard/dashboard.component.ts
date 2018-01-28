@@ -43,11 +43,12 @@ export class DashboardComponent implements OnInit {
   }
 
   searchChanged(query: string){
+    query = (query || '').toLowerCase();
     this.savingAccountCustomers = this.originalData.filter((c: any)=> 
-      c.type === SAVE_ACCOUNT && ~c.name.indexOf(query)
+      c.type === SAVE_ACCOUNT && ~c.name.toLowerCase().indexOf(query)
     );
     this.currentAccountCustomers = this.originalData.filter((c: any) => 
-      c.type === CURRENT_ACCOUNT && ~c.name.indexOf(query)
+      c.type === CURRENT_ACCOUNT && ~c.name.toLowerCase().indexOf(query)
     );
   }
 
@@ -116,8 +117,6 @@ export class DashboardComponent implements OnInit {
   }
 
   loadComponent(customer: Customer) {
-    // this.currentAddIndex = (this.currentAddIndex + 1) % this.ads.length;
-    // let adItem = this.ads[this.currentAddIndex];
     let componentFactory = this.componentFactoryResolver.resolveComponentFactory(CustomerCardComponent);
 
     let viewContainerRef = this.showSelectedCustomer;
@@ -126,6 +125,7 @@ export class DashboardComponent implements OnInit {
     let componentRef = viewContainerRef.createComponent(componentFactory);
     let componentInstance = (<CustomerCardComponent>componentRef.instance);
     componentInstance.customer = customer;
+    //attaching output listner
     componentInstance.closeCard.subscribe(tobeClose => {
       if(tobeClose) viewContainerRef.clear();
     });
