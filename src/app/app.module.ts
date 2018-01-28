@@ -7,8 +7,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { CustomerListService } from './services/customer-list.service';
-import { UtilityService } from './services/utility.service';
 import { AppRoutingModule } from './app-routing.module';
+import { UtilityService } from './core/services/utility.service';
 
 @NgModule({
   declarations: [
