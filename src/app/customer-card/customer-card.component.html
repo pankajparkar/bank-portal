@@ -1,6 +1,6 @@
 <mat-card class="customer-card">
   <mat-card-header>
-    <button mat-icon-button class="customer-close-button">
+    <button mat-icon-button class="customer-close-button" (click)="closeCard.emit(true)">
       <mat-icon>close</mat-icon>
     </button>
     <div mat-card-avatar class="customer-header-image"></div>

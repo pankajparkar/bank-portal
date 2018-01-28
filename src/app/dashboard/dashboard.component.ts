@@ -124,7 +124,11 @@ export class DashboardComponent implements OnInit {
     viewContainerRef.clear();
 
     let componentRef = viewContainerRef.createComponent(componentFactory);
-    (<CustomerCardComponent>componentRef.instance).customer = customer;
+    let componentInstance = (<CustomerCardComponent>componentRef.instance);
+    componentInstance.customer = customer;
+    componentInstance.closeCard.subscribe(tobeClose => {
+      if(tobeClose) viewContainerRef.clear();
+    });
   }
   
 
