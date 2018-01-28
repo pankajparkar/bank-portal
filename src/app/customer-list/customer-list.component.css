@@ -7,7 +7,11 @@
     margin-right: auto;
 }
 
-.selected-customer {
+/* .mat-list-item:hover {
+    background: #d0d6d69e;
+} */
+
+.focus-item {
     background: #d0d6d69e;
 }
 
@@ -18,4 +22,8 @@
 h3 {
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+a {
+    cursor: pointer
 }
