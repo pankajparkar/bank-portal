@@ -6,14 +6,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-// import { CustomMaterialModule } from './custom-material/custom-material.module';
-import { NavbarComponent } from './navbar/navbar.component';
-// import { DashboardComponent } from './dashboard/dashboard.component';
-import { CustomerListComponent } from './customer-list/customer-list.component';
 import { CustomerListService } from './services/customer-list.service';
 import { UtilityService } from './services/utility.service';
 import { AppRoutingModule } from './app-routing.module';
-import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
