@@ -15,8 +15,8 @@ import { CustomerCardComponent } from './customer-card/customer-card.component';
 import { AppComponent } from './app.component';
 //TODO: check why CustomMaterialModule and Core Module needed
 import { CustomMaterialModule } from './custom-material/custom-material.module';
-import { NavbarComponent } from './navbar/navbar.component';
 import { CoreModule } from './core/core.module';
+import { NavbarComponent } from './navbar/navbar.component';
 
 const routes = [
   {path: 'dashboard', component: DashboardComponent},
@@ -36,7 +36,7 @@ const routes = [
   schemas: [NO_ERRORS_SCHEMA],
   imports: [
     BrowserModule,
-    CoreModule,
+    // CoreModule,
     CustomMaterialModule,
     FormsModule,
     HttpClientModule,
@@ -48,6 +48,6 @@ const routes = [
     ConfirmDeleteDialogComponent,
     CustomerCardComponent
   ],
-  exports: [RouterModule, DashboardComponent]
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
