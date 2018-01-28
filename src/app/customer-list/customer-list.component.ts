@@ -25,11 +25,19 @@ export class CustomerListComponent implements OnInit {
     return this.utilityService.calculateBalance(balance);
   }
 
-  removedCustomerAction(id: number){
+  removedCustomerAction(id: number, event: Event){
+    event.preventDefault();
+    event.stopPropagation();
     this.removeCustomer.emit(id);
   }
 
-  openDialogAction(customer){
+  selectCustomer(customer: any){
+
+  }
+
+  openDialogAction(customer: Customer, event: Event){
+    event.preventDefault();
+    event.stopPropagation();
     this.openDialog.emit(customer);
   }
 

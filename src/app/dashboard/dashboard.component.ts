@@ -13,8 +13,9 @@ import { ConfirmDeleteDialogComponent } from '../confirm-delete-dialog/confirm-d
 })
 export class DashboardComponent implements OnInit {
 
-  savingAccountCustomers: any[];
-  currentAccountCustomers: any[];
+  savingAccountCustomers: Customer[];
+  currentAccountCustomers: Customer[];
+  originalData: Customer[];
 
   constructor(
       private customerListService: CustomerListService,
@@ -22,13 +23,10 @@ export class DashboardComponent implements OnInit {
       private snackBar: MatSnackBar
     ) { }
 
-  assignDataSets(res: any[]){
-    
-  }
-
   getCustomers(){
     return this.customerListService.getCustomers().subscribe(
       (data: any) => {
+        this.originalData = data;
         this.savingAccountCustomers = data.filter(c => c.type === "Saving");
         this.currentAccountCustomers = data.filter(c => c.type === "Current");
       }
@@ -36,20 +34,20 @@ export class DashboardComponent implements OnInit {
   }
 
   searchChanged(query: string){
-    this.savingAccountCustomers = this.savingAccountCustomers.filter(c => c.type === "Saving" && query === c.name);
-    this.currentAccountCustomers = this.currentAccountCustomers.filter(c => c.type === "Current" && query === c.name);
+    this.savingAccountCustomers = this.originalData.filter((c: any)=> c.type === "Saving" && ~c.name.indexOf(query));
+    this.currentAccountCustomers = this.originalData.filter((c: any) => c.type === "Current" && ~c.name.indexOf(query));
   }
 
-  createCustomer(empName: string){
-    return {name: empName, updated: new Date(), id: Math.random()};
+  createCustomer(empName: string, type: string){
+    return {name: empName, id: Math.random(), balance: 10000, type};
   }
 
   addSavingAccountCustomer(empName: string){
-    this.savingAccountCustomers.push(this.createCustomer(empName));
+    this.savingAccountCustomers.push(this.createCustomer(empName, 'Saving'));
   }
   
   addCurrentAccountCustomer(empName: string){
-    this.currentAccountCustomers.push(this.createCustomer(empName));
+    this.currentAccountCustomers.push(this.createCustomer(empName, 'Current'));
   }
 
   removeSavingAccountCustomer(id: number){

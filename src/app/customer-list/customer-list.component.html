@@ -14,11 +14,12 @@
     </button>
   </center>
   <mat-divider></mat-divider>
-  <mat-list-item *ngFor="let customer of customers">
-    <mat-icon mat-list-icon (click)="openDialogAction(customer)">mode_edit</mat-icon>
+  <mat-list-item *ngFor="let customer of customers" 
+    [ngClass]="{'selected-customer': customer.selected}" (click)="selectCustomer(customer)">
+    <mat-icon mat-list-icon (click)="openDialogAction(customer, $event)">mode_edit</mat-icon>
     <h4 mat-line>{{customer.name}}</h4>
-    <p mat-line> {{calculateBalance(customer.balance)}} </p>
-    <button mat-icon-button (click)="removedCustomerAction(customer.id)">
+    <p mat-line> {{calculateBalance(customer.balance) | currency }} </p>
+    <button mat-icon-button (click)="removedCustomerAction(customer.id, $event)">
       <mat-icon aria-label="Delete">delete</mat-icon>
     </button>
   </mat-list-item>
