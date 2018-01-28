@@ -6,21 +6,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { CustomerListService } from './services/customer-list.service';
-import { AppRoutingModule } from './app-routing.module';
 import { UtilityService } from './core/services/utility.service';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
-    AppRoutingModule,
+    DashboardModule,
     NoopAnimationsModule // initally disabled
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [
-    CustomerListService,
     UtilityService
   ],
   bootstrap: [AppComponent]

@@ -2,10 +2,10 @@ import { Component, OnInit, ComponentFactoryResolver, ViewChild, ViewContainerRe
 import { HttpClient } from '@angular/common/http';
 import { MatDialog, MatSnackBar } from '@angular/material';
 
-import { CustomerListService } from '../services/customer-list.service';
 import { CustomerDialogComponent } from '../customer-dialog/customer-dialog.component';
 import { ConfirmDeleteDialogComponent } from '../confirm-delete-dialog/confirm-delete-dialog.component';
 import { CustomerCardComponent } from '../customer-card/customer-card.component';
+import { CustomerListService } from './services/customer-list.service';
 
 const SAVE_ACCOUNT = 'Saving';
 const CURRENT_ACCOUNT = 'Current';

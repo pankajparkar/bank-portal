@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { UtilityService } from '../core/services/utility.service';
+import { UtilityService } from '../../core/services/utility.service';
 
 @Component({
   selector: 'bp-customer-list',

@@ -1,3 +1,5 @@
+//https://gist.github.com/adamrecsko/0f28f474eca63e0279455476cc11eca7#gistcomment-2103489
+
 import { PipeTransform, Pipe } from '@angular/core';
 
 @Pipe({ name: 'highlight' })
