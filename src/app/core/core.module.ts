@@ -5,11 +5,16 @@ import { CustomMaterialModule } from '../custom-material/custom-material.module'
 import { HighlightPipe } from './pipes/highlight.pipe';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UtilityService } from './services/utility.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     CustomMaterialModule,
-    CommonModule
+    CommonModule,
+    FormsModule, 
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     UtilityService
@@ -21,7 +26,11 @@ import { UtilityService } from './services/utility.service';
   exports: [
     NavbarComponent,
     HighlightPipe,
-    CustomMaterialModule
+    CustomMaterialModule,
+    CommonModule,
+    FormsModule, 
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class CoreModule { 

@@ -1,7 +1,4 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Route } from '@angular/router';
 
 import { CoreModule } from '../core/core.module';
@@ -23,11 +20,7 @@ const routes: Route[] = [
   ],
   schemas: [NO_ERRORS_SCHEMA],
   imports: [
-    CommonModule,
     CoreModule.forRoot(),
-    FormsModule,
-    HttpClientModule,
-    ReactiveFormsModule,
     LazyResourcesModule,
     RouterModule.forChild(routes)
   ],

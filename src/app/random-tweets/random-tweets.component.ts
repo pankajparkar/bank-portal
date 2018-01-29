@@ -20,6 +20,9 @@ export class RandomTweetsComponent implements OnInit {
   }
 
   ngOnInit() {
+    setInterval(()=> {
+      this.getRandomQuotes();
+    }, 5000)
   }
 
 }
