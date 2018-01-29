@@ -30,7 +30,7 @@ const routes: Route[] = [
   schemas: [NO_ERRORS_SCHEMA],
   imports: [
     CommonModule,
-    CoreModule,
+    CoreModule.forRoot(),
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
@@ -42,6 +42,6 @@ const routes: Route[] = [
     ConfirmDeleteDialogComponent,
     CustomerCardComponent
   ],
-  exports: [RouterModule, CoreModule]
+  exports: [RouterModule]
 })
 export class DashboardModule { }

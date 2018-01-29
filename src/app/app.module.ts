@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { UtilityService } from './core/services/utility.service';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -16,9 +15,6 @@ import { AppRoutingModule } from './app-routing.module';
     NoopAnimationsModule // initally disabled
   ],
   schemas: [NO_ERRORS_SCHEMA],
-  providers: [
-    UtilityService
-  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,11 +4,15 @@ import { CommonModule } from '@angular/common';
 import { CustomMaterialModule } from '../custom-material/custom-material.module';
 import { HighlightPipe } from './pipes/highlight.pipe';
 import { NavbarComponent } from './navbar/navbar.component';
+import { UtilityService } from './services/utility.service';
 
 @NgModule({
   imports: [
     CustomMaterialModule,
     CommonModule
+  ],
+  providers: [
+    UtilityService
   ],
   declarations: [
     NavbarComponent,
@@ -20,4 +24,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     CustomMaterialModule
   ]
 })
-export class CoreModule { }
+export class CoreModule { 
+  static forRoot() {
+    return {ngModule: CoreModule, providers: [UtilityService]};
+  }
+}
