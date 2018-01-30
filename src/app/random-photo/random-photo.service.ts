@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 const API_URL = 'https://api.tronalddump.io/random/quote'
 
 @Injectable()
-export class RandomTweetsService {
+export class RandomPhotoService {
 
   constructor(private httpClient: HttpClient) { }
 
