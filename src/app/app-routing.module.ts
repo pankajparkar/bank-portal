@@ -8,7 +8,8 @@ import { CoreModule } from './core/core.module';
 
 const routes: Route[] = [
     {path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule'},
-    {path: 'tweets', loadChildren: './random-tweets/random-tweets.module#RandomTweetsModule'}
+    {path: 'tweets', loadChildren: './random-tweets/random-tweets.module#RandomTweetsModule'},
+    {path: '**', redirectTo: 'dashboard'}
 ]
 
 @NgModule({
