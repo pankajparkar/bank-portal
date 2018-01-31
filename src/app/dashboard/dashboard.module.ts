@@ -7,6 +7,7 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
 import { SearchCustomerComponent } from './search-customer/search-customer.component';
 import { CustomerListService } from './services/customer-list.service';
 import { LazyResourcesModule } from '../lazy-resources/lazy-resources.module';
+import { SearchNameService } from './services/search-name.service';
 
 const routes: Route[] = [
   {path: '', component: DashboardComponent}
@@ -24,7 +25,10 @@ const routes: Route[] = [
     LazyResourcesModule,
     RouterModule.forChild(routes)
   ],
-  providers: [CustomerListService],
+  providers: [
+    CustomerListService,
+    SearchNameService
+  ],
   exports: [RouterModule]
 })
 export class DashboardModule { }
