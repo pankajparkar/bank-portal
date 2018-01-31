@@ -1,5 +1,5 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -12,7 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   imports: [
     AppRoutingModule,
-    NoopAnimationsModule // initally disabled
+    BrowserAnimationsModule // initally disabled
   ],
   schemas: [NO_ERRORS_SCHEMA],
   bootstrap: [AppComponent]
