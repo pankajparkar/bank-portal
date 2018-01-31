@@ -13,7 +13,7 @@ app.get('/ping', function (req, res, next) {
 });
 
 
-var staticRoot = __dirname + '/dist/';
+var staticRoot = __dirname;
 
 app.use(express.static(staticRoot));
 
