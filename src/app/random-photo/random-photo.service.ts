@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const API_URL = 'https://api.tronalddump.io/random/quote'
+const API_URL = 'https://jsonplaceholder.typicode.com/photos'
 
 @Injectable()
 export class RandomPhotoService {
@@ -9,7 +9,6 @@ export class RandomPhotoService {
   constructor(private httpClient: HttpClient) { }
 
   getRandomQuote(){
-    return this.httpClient.get(API_URL);
+    return this.httpClient.get(`${API_URL}/${Math.random().toFixed(0)}`);
   }
-
 }

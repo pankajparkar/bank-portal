@@ -13,7 +13,9 @@ export class RandomPhotoComponent implements OnInit {
   constructor(private randomPhotoService: RandomPhotoService) { }
 
   getRandomPhoto(){
-    // this.randomPhoto.
+    this.randomPhotoService.getRandomQuote().subscribe(
+      photo => this.randomPhoto = photo
+    )
   }
 
   ngOnInit() {
