@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { CustomMaterialModule } from '../custom-material/custom-material.module';
 import { HighlightPipe } from './pipes/highlight.pipe';
@@ -14,7 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     FormsModule, 
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   providers: [
     UtilityService
@@ -30,7 +32,8 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     FormsModule, 
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ]
 })
 export class CoreModule { 
