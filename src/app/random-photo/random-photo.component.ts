@@ -21,7 +21,7 @@ export class RandomPhotoComponent implements OnInit {
   ngOnInit() {
     setInterval(()=> {
       this.getRandomPhoto();
-    }, 5000)
+    }, 8000)
   }
 
 }
