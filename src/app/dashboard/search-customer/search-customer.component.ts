@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import 'rxjs/add/operator/debounceTime';
 
 @Component({
   selector: 'bp-search-customer',
@@ -8,14 +10,16 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class SearchCustomerComponent implements OnInit {
 
   @Output() searchChaned = new EventEmitter<string>();
+  searchControl = new FormControl();
 
   constructor() { }
 
-  inputChangedAction(query: string){
-    this.searchChaned.emit(query);
-  }
-
   ngOnInit() {
+    this.searchControl.valueChanges
+    // .debounceTime(500)
+    .subscribe(query => {
+      this.searchChaned.emit(query);
+    });
   }
 
 }

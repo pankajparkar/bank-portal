@@ -1,7 +1,7 @@
 <center>
   <div class="example-container">
     <mat-form-field>
-      <input #input matInput placeholder="Search for Customer" (keyup)="inputChangedAction(input.value)">
+      <input type="search" matInput placeholder="Search for Customer" [formControl]="searchControl">
     </mat-form-field>
   </div>
   <mat-divider></mat-divider>
