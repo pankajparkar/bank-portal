@@ -14,7 +14,7 @@
     </button>
   </center>
   <mat-divider></mat-divider>
-  <mat-list-item *ngFor="let customer of customers" 
+  <mat-list-item [@flyInOut]="'in'" *ngFor="let customer of customers" 
     (mouseenter)="customer.focused = true" 
     (mouseleave)="customer.focused = false" 
     [ngClass]="{'focus-item': customer.focused}" >

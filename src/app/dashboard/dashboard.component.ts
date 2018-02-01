@@ -59,11 +59,11 @@ export class DashboardComponent implements OnInit {
   }
 
   addSavingAccountCustomer(empName: string){
-    this.savingAccountCustomers.push(this.createCustomer(empName, SAVE_ACCOUNT));
+    this.savingAccountCustomers.unshift(this.createCustomer(empName, SAVE_ACCOUNT));
   }
   
   addCurrentAccountCustomer(empName: string){
-    this.currentAccountCustomers.push(this.createCustomer(empName, CURRENT_ACCOUNT));
+    this.currentAccountCustomers.unshift(this.createCustomer(empName, CURRENT_ACCOUNT));
   }
 
   removeSavingAccountCustomer(id: number){
@@ -92,9 +92,9 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  openSaveCustDialog(customer: any){
+  openSaveCustDialog(customer: Customer){
     let dialog = this.dialog.open(CustomerDialogComponent);
-    dialog.componentInstance.customer = customer;
+    dialog.componentInstance.customer = Object.assign({}, customer);
     dialog.afterClosed().subscribe((updatedCustomer: any) => {
       if(!updatedCustomer) return;
       let currentCustomerIndex = this.savingAccountCustomers.findIndex(c => c.id === customer.id);
