@@ -3,15 +3,15 @@
       <h3>
         <ng-content select=".title"></ng-content>
       </h3>
-      <mat-form-field class="example-form-field">
-        <input matInput type="text" placeholder="Enter customer name" [(ngModel)]="customerName" (keyup.enter)="addCustomerAction()"/>
-        <button mat-button *ngIf="customerName" matSuffix mat-icon-button aria-label="Clear" (click)="customerName=''">
-          <mat-icon>close</mat-icon>
+      <form #customerForm="ngForm" (ngSubmit)="customerForm.valid && addCustomerAction()">
+        <mat-form-field class="example-form-field">
+          <input matInput type="search" name="customerName" [(ngModel)]="customerName" 
+            placeholder="Enter customer name" required/>
+        </mat-form-field>
+        <button type="submit" mat-mini-fab color="primary">
+          <mat-icon>add</mat-icon>
         </button>
-      </mat-form-field>
-    <button mat-mini-fab color="primary" (click)="addCustomerAction()">
-      <mat-icon>add</mat-icon>
-    </button>
+      </form>
   </center>
   <mat-divider></mat-divider>
   <mat-list-item [@flyInOut]="'in'" *ngFor="let customer of customers" 
