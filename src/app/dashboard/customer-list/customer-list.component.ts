@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { UtilityService } from '../../core/services/utility.service';
 import { animate, style, transition, trigger, state, group } from '@angular/animations';
 

@@ -1,41 +1,46 @@
+<center>
+  <h3>
+    <ng-content select=".title"></ng-content>
+  </h3>
+  <form #customerForm="ngForm" (ngSubmit)="customerForm.valid && addCustomerAction()">
+    <mat-form-field class="example-form-field">
+      <input matInput type="search" name="customerName" [(ngModel)]="customerName" 
+        placeholder="Enter customer name" required/>
+    </mat-form-field>
+    <button type="submit" mat-mini-fab color="primary">
+      <mat-icon>add</mat-icon>
+    </button>
+  </form>
+</center>
+<mat-divider></mat-divider>
 <mat-list>
-  <center>
-      <h3>
-        <ng-content select=".title"></ng-content>
-      </h3>
-      <form #customerForm="ngForm" (ngSubmit)="customerForm.valid && addCustomerAction()">
-        <mat-form-field class="example-form-field">
-          <input matInput type="search" name="customerName" [(ngModel)]="customerName" 
-            placeholder="Enter customer name" required/>
-        </mat-form-field>
-        <button type="submit" mat-mini-fab color="primary">
-          <mat-icon>add</mat-icon>
-        </button>
-      </form>
-  </center>
-  <mat-divider></mat-divider>
   <mat-list-item [@flyInOut]="'in'" *ngFor="let customer of customers" 
     (mouseenter)="customer.focused = true" 
     (mouseleave)="customer.focused = false" 
-    [ngClass]="{'focus-item': customer.focused}" >
-    <mat-icon class="action" mat-list-icon (click)="openDialogAction(customer)">mode_edit</mat-icon>
-    <h4 mat-line>
-      <a class="action" 
-        (click)="selectCustomerAction(customer)" 
-        [innerHTML]="customer.name | highlight: searchTerm">
-      </a>
-    </h4>
-    <p mat-line> 
-      <mat-chip-list>
-        <mat-chip color="accent" selected="true">
-          <mat-icon>monetization_on</mat-icon>
-          {{calculateBalance(customer.balance) | number: '.0-0' }} 
-        </mat-chip>
-      </mat-chip-list>
-    </p>
-    <button mat-icon-button (click)="removedCustomerAction(customer.id)">
-      <mat-icon aria-label="Delete">delete</mat-icon>
-    </button>
+    [ngClass]="{'focus-item': customer.focused}">
+      <!-- <bp-customer-item [customer]="customer" 
+        (openDialog)="openDialogAction($event)"
+        (removedCustomer)="removedCustomerAction($event)"
+        (selectCustomer)="selectCustomerAction($event)">
+      </bp-customer-item> -->
+      <mat-icon class="action" mat-list-icon (click)="openDialogAction(customer)">mode_edit</mat-icon>
+      <h4 mat-line>
+        <a class="action" 
+          (click)="selectCustomerAction(customer)" 
+          [innerHTML]="customer.name | highlight: searchTerm">
+        </a>
+      </h4>
+      <p mat-line> 
+        <mat-chip-list>
+          <mat-chip color="accent" selected="true">
+            <mat-icon>monetization_on</mat-icon>
+            {{calculateBalance(customer.balance) | number: '.0-0' }} 
+          </mat-chip>
+        </mat-chip-list>
+      </p>
+      <button mat-icon-button (click)="removedCustomerAction(customer.id)">
+        <mat-icon aria-label="Delete">delete</mat-icon>
+      </button>
   </mat-list-item>
   <mat-list-item *ngIf="customers?.length === 0">
     <p mat-line> 

@@ -1,0 +1,18 @@
+<mat-icon class="action" mat-list-icon (click)="openDialog.emit(customer)">mode_edit</mat-icon>
+<h4 mat-line>
+  <a class="action" 
+    (click)="selectCustomer.emit(customer)" 
+    [innerHTML]="customer.name | highlight: searchTerm">
+  </a>
+</h4>
+<p mat-line> 
+  <mat-chip-list>
+    <mat-chip color="accent" selected="true">
+      <mat-icon>monetization_on</mat-icon>
+      {{calculateBalance(customer.balance) | number: '.0-0' }} 
+    </mat-chip>
+  </mat-chip-list>
+</p>
+<button mat-icon-button (click)="removedCustomer.emit(customer.id)">
+  <mat-icon aria-label="Delete">delete</mat-icon>
+</button>
