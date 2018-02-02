@@ -1,10 +1,10 @@
 <bp-search-customer (searchChaned)="searchChanged($event)"></bp-search-customer>
 <bp-customer-list [customers]="savingAccountCustomers" 
   [searchTerm]="searchTerm"
-  (addCustomer)="addSavingAccountCustomer($event)"
-  (openDialog)="openSaveCustDialog($event)"
-  (selectCustomer)="selectCustomer($event)"
-  (removeCustomer)="removeSavingAccountCustomer($event)">
+  (add)="addSavingAccountCustomer($event)"
+  (edit)="openSaveCustDialog($event)"
+  (select)="selectCustomer($event)"
+  (remove)="removeSavingAccountCustomer($event)">
     <span class="title">Saving A/C</span>
     <span class="message">
       No Saving A/C(s).
@@ -12,10 +12,10 @@
 </bp-customer-list>
 <bp-customer-list [customers]="currentAccountCustomers" 
   [searchTerm]="searchTerm"
-  (addCustomer)="addCurrentAccountCustomer($event)"
-  (openDialog)="openCurrentCustDialog($event)"
-  (selectCustomer)="selectCustomer($event)"
-  (removeCustomer)="removeCurrentAccountCustomer($event)">
+  (add)="addCurrentAccountCustomer($event)"
+  (edit)="openCurrentCustDialog($event)"
+  (select)="selectCustomer($event)"
+  (remove)="removeCurrentAccountCustomer($event)">
     <span class="title">Current A/C</span>
     <span class="message">
       Current A/C(s).

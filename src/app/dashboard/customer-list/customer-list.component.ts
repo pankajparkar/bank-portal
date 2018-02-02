@@ -38,34 +38,21 @@ import { animate, style, transition, trigger, state, group } from '@angular/anim
 export class CustomerListComponent implements OnInit {
   @Input()  customers: any[];
   @Input()  searchTerm: string;
-  @Output() addCustomer = new EventEmitter<string>();
-  @Output() removeCustomer = new EventEmitter<number>();
-  @Output() openDialog = new EventEmitter<Customer>();
-  @Output() selectCustomer = new EventEmitter<Customer>();
+  @Output() add = new EventEmitter<string>();
+  @Output() remove = new EventEmitter<number>();
+  @Output() edit = new EventEmitter<Customer>();
+  @Output() select = new EventEmitter<Customer>();
   
   customerName: string;
 
   constructor(private utilityService: UtilityService) { }
   
   addCustomerAction(){
-    this.addCustomer.emit(this.customerName);
-    this.customerName = '';
+    this.add.emit(this.customerName);
   }
 
   calculateBalance(balance: number){
     return this.utilityService.calculateBalance(balance);
-  }
-
-  removedCustomerAction(id: number, event: Event){
-    this.removeCustomer.emit(id);
-  }
-
-  selectCustomerAction(customer: any){
-    this.selectCustomer.emit(customer);
-  }
-
-  openDialogAction(customer: Customer, event: Event){
-    this.openDialog.emit(customer);
   }
 
   ngOnInit() {

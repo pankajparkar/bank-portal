@@ -2,7 +2,7 @@
   <h3>
     <ng-content select=".title"></ng-content>
   </h3>
-  <form #customerForm="ngForm" (ngSubmit)="customerForm.valid && addCustomerAction()">
+  <form #customerForm="ngForm" (ngSubmit)="customerForm.valid && addCustomerAction(customerName);customerForm.reset()">
     <mat-form-field class="example-form-field">
       <input matInput type="search" name="customerName" [(ngModel)]="customerName" 
         placeholder="Enter customer name" required/>
@@ -23,10 +23,10 @@
         (removedCustomer)="removedCustomerAction($event)"
         (selectCustomer)="selectCustomerAction($event)">
       </bp-customer-item> -->
-      <mat-icon class="action" mat-list-icon (click)="openDialogAction(customer)">mode_edit</mat-icon>
+      <mat-icon class="action" mat-list-icon (click)="edit.emit(customer)">mode_edit</mat-icon>
       <h4 mat-line>
         <a class="action" 
-          (click)="selectCustomerAction(customer)" 
+          (click)="select.emit(customer)" 
           [innerHTML]="customer.name | highlight: searchTerm">
         </a>
       </h4>
@@ -38,7 +38,7 @@
           </mat-chip>
         </mat-chip-list>
       </p>
-      <button mat-icon-button (click)="removedCustomerAction(customer.id)">
+      <button mat-icon-button (click)="remove.emit(customer.id)">
         <mat-icon aria-label="Delete">delete</mat-icon>
       </button>
   </mat-list-item>
