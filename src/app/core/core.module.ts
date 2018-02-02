@@ -8,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { UtilityService } from './services/utility.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CalculateAmoutPipe } from './pipes/calculate-amout.pipe';
 
 @NgModule({
   imports: [
@@ -23,11 +24,13 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   declarations: [
     NavbarComponent,
-    HighlightPipe
+    HighlightPipe,
+    CalculateAmoutPipe
   ],
   exports: [
     NavbarComponent,
     HighlightPipe,
+    CalculateAmoutPipe,
     CustomMaterialModule,
     CommonModule,
     FormsModule, 
