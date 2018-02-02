@@ -9,6 +9,6 @@ export class RandomPhotoService {
   constructor(private httpClient: HttpClient) { }
 
   getRandomQuote(){
-    return this.httpClient.get(`${API_URL}/${Math.random().toFixed(0)}`);
+    return this.httpClient.get(`${API_URL}/${(Math.random()+1).toFixed(0)}`);
   }
 }
