@@ -2,7 +2,7 @@
   <h3>
     <ng-content select=".title"></ng-content>
   </h3>
-  <form #customerForm="ngForm" (ngSubmit)="customerForm.valid && addCustomerAction(customerName);customerForm.reset()">
+  <form #customerForm="ngForm" (ngSubmit)="customerForm.valid && addCustomerAction(customerName)">
     <mat-form-field class="example-form-field">
       <input matInput type="search" name="customerName" [(ngModel)]="customerName" 
         placeholder="Enter customer name" required/>
@@ -13,16 +13,33 @@
   </form>
 </center>
 <mat-divider></mat-divider>
-<mat-list>
-  <mat-list-item [@flyInOut]="'in'" *ngFor="let customer of customers" 
+<ul class="list">
+  <li [@flyInOut]="'in'" *ngFor="let customer of customers" 
     (mouseenter)="customer.focused = true" 
     (mouseleave)="customer.focused = false" 
     [ngClass]="{'focus-item': customer.focused}">
-      <!-- <bp-customer-item [customer]="customer" 
-        (openDialog)="openDialogAction($event)"
-        (removedCustomer)="removedCustomerAction($event)"
-        (selectCustomer)="selectCustomerAction($event)">
-      </bp-customer-item> -->
+    <div mat-line>
+      <button mat-icon-button color="primary">
+        <mat-icon class="action" mat-list-icon (click)="edit.emit(customer)">mode_edit</mat-icon>
+      </button>
+      <a class="action" 
+        (click)="select.emit(customer)" 
+        [innerHTML]="customer.name | highlight: searchTerm">
+      </a>
+      <button mat-icon-button (click)="remove.emit(customer.id)" class="delete-button">
+        <mat-icon aria-label="Delete">delete</mat-icon>
+      </button>
+      <mat-chip-list class="type-chip">
+        <mat-chip color="accent" selected="true">
+          <mat-icon>monetization_on</mat-icon>
+          {{calculateBalance(customer.balance) | number: '.0-0' }} 
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+  </li>
+</ul>
+<!-- <mat-list>
+  <mat-list-item *ngFor="let customer of customers" >
       <mat-icon class="action" mat-list-icon (click)="edit.emit(customer)">mode_edit</mat-icon>
       <h4 mat-line>
         <a class="action" 
@@ -47,4 +64,10 @@
       <ng-content select=".message"></ng-content> 
     </p>
   </mat-list-item>
-</mat-list>
+</mat-list> -->
+
+      <!-- <bp-customer-item [customer]="customer" 
+        (openDialog)="openDialogAction($event)"
+        (removedCustomer)="removedCustomerAction($event)"
+        (selectCustomer)="selectCustomerAction($event)">
+      </bp-customer-item> -->

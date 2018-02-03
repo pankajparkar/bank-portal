@@ -27,3 +27,17 @@ h3 {
 .action {
     cursor: pointer
 }
+
+.type-chip{
+    float: right;
+}
+
+.delete-button{
+    float: right;
+}
+
+.list li {
+    list-style: none;
+    padding: 10px;
+    margin-left: -10%;
+}
