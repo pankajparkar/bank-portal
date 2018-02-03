@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DecimalPipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { CustomMaterialModule } from '../custom-material/custom-material.module';
@@ -20,7 +20,8 @@ import { CalculateAmoutPipe } from './pipes/calculate-amout.pipe';
     RouterModule
   ],
   providers: [
-    UtilityService
+    UtilityService,
+    DecimalPipe
   ],
   declarations: [
     NavbarComponent,

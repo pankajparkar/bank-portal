@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import { UtilityService } from '../services/utility.service';
-import { memoize } from 'lodash.memoize';
+
+let cache = {};
 
 @Pipe({
   name: 'calculateAmout',
@@ -10,12 +11,17 @@ import { memoize } from 'lodash.memoize';
 export class CalculateAmoutPipe implements PipeTransform {
   constructor(private utilityService: UtilityService, private decimalPipe: DecimalPipe){}
 
+  private calculateMemoize = (val) => {
+    if(!cache[val]) cache[val] = this.numberFormat(val);
+    return cache[val];
+  }
+
   private numberFormat = (value) =>{
     var result = this.utilityService.calculateBalance(value);
     return this.decimalPipe.transform(result, '.0-0')
   };
 
   transform(value: any, args?: any): any {
-    return memoize(this.numberFormat(value));
+    return this.calculateMemoize(value);
   }
 }
