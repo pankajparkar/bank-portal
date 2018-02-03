@@ -38,36 +38,3 @@
     </div>
   </li>
 </ul>
-<!-- <mat-list>
-  <mat-list-item *ngFor="let customer of customers" >
-      <mat-icon class="action" mat-list-icon (click)="edit.emit(customer)">mode_edit</mat-icon>
-      <h4 mat-line>
-        <a class="action" 
-          (click)="select.emit(customer)" 
-          [innerHTML]="customer.name | highlight: searchTerm">
-        </a>
-      </h4>
-      <p mat-line> 
-        <mat-chip-list>
-          <mat-chip color="accent" selected="true">
-            <mat-icon>monetization_on</mat-icon>
-            {{calculateBalance(customer.balance) | number: '.0-0' }} 
-          </mat-chip>
-        </mat-chip-list>
-      </p>
-      <button mat-icon-button (click)="remove.emit(customer.id)">
-        <mat-icon aria-label="Delete">delete</mat-icon>
-      </button>
-  </mat-list-item>
-  <mat-list-item *ngIf="customers?.length === 0">
-    <p mat-line> 
-      <ng-content select=".message"></ng-content> 
-    </p>
-  </mat-list-item>
-</mat-list> -->
-
-      <!-- <bp-customer-item [customer]="customer" 
-        (openDialog)="openDialogAction($event)"
-        (removedCustomer)="removedCustomerAction($event)"
-        (selectCustomer)="selectCustomerAction($event)">
-      </bp-customer-item> -->
