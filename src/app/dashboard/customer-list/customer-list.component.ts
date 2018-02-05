@@ -33,7 +33,8 @@ import { animate, style, transition, trigger, state, group } from '@angular/anim
         ])
       ])
     ])
-  ]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CustomerListComponent implements OnInit {
   @Input()  customers: any[];

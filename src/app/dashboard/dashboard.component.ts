@@ -33,13 +33,15 @@ export class DashboardComponent implements OnInit {
       private snackBar: MatSnackBar
     ) { }
 
+  assignCollection(data: any)  {
+    this.originalData = Object.assign([], data);
+    this.savingAccountCustomers = data.filter(c => c.type === SAVE_ACCOUNT);
+    this.currentAccountCustomers = data.filter(c => c.type === CURRENT_ACCOUNT);
+  }
+
   getCustomers(){
-    return this.customerListService.getCustomers().subscribe(
-      (data: any) => {
-        this.originalData = data;
-        this.savingAccountCustomers = data.filter(c => c.type === SAVE_ACCOUNT);
-        this.currentAccountCustomers = data.filter(c => c.type === CURRENT_ACCOUNT);
-      }
+    this.customerListService.getCustomers().subscribe(
+      data => this.assignCollection(data)
     );
   }
 
@@ -59,11 +61,13 @@ export class DashboardComponent implements OnInit {
   }
 
   addSavingAccountCustomer(empName: string){
-    this.savingAccountCustomers.unshift(this.createCustomer(empName, SAVE_ACCOUNT));
+    this.originalData.unshift(this.createCustomer(empName, SAVE_ACCOUNT))
+    this.assignCollection(this.originalData);
   }
   
   addCurrentAccountCustomer(empName: string){
-    this.currentAccountCustomers.unshift(this.createCustomer(empName, CURRENT_ACCOUNT));
+    this.originalData.unshift(this.createCustomer(empName, CURRENT_ACCOUNT))
+    this.assignCollection(this.originalData);
   }
 
   removeSavingAccountCustomer(id: number){

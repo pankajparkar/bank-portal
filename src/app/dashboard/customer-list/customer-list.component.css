@@ -7,9 +7,9 @@
     margin-right: auto;
 }
 
-/* .mat-list-item:hover {
+.focus:hover {
     background: #d0d6d69e;
-} */
+}
 
 .focus-item {
     background: #d0d6d69e;

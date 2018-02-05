@@ -14,10 +14,7 @@
 </center>
 <mat-divider></mat-divider>
 <ul class="list">
-  <li [@flyInOut]="'in'" *ngFor="let customer of customers" 
-    (mouseenter)="customer.focused = true" 
-    (mouseleave)="customer.focused = false" 
-    [ngClass]="{'focus-item': customer.focused}">
+  <li [@flyInOut]="'in'" class="focus" *ngFor="let customer of customers">
     <div mat-line>
       <button mat-icon-button color="primary">
         <mat-icon class="action" mat-list-icon (click)="edit.emit(customer)">mode_edit</mat-icon>
