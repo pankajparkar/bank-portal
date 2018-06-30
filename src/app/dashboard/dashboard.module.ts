@@ -8,6 +8,7 @@ import { SearchCustomerComponent } from './search-customer/search-customer.compo
 import { CustomerListService } from './services/customer-list.service';
 import { LazyResourcesModule } from '../lazy-resources/lazy-resources.module';
 import { SearchNameService } from './services/search-name.service';
+import { CustomerItemComponent } from './customer-item/customer-item.component';
 
 const routes: Route[] = [
   {path: '', component: DashboardComponent}
@@ -17,7 +18,8 @@ const routes: Route[] = [
   declarations: [
     DashboardComponent,
     CustomerListComponent,
-    SearchCustomerComponent
+    SearchCustomerComponent,
+    CustomerItemComponent
   ],
   schemas: [NO_ERRORS_SCHEMA],
   imports: [

@@ -13,25 +13,9 @@
   </form>
 </center>
 <mat-divider></mat-divider>
+
 <ul class="list">
-  <li [@flyInOut]="'in'" class="focus" *ngFor="let customer of customers">
-    <div mat-line>
-      <button mat-icon-button color="primary">
-        <mat-icon class="action" mat-list-icon (click)="edit.emit(customer)">mode_edit</mat-icon>
-      </button>
-      <a class="action" 
-        (click)="select.emit(customer)" 
-        [innerHTML]="customer.name | highlight: searchTerm">
-      </a>
-      <button mat-icon-button (click)="remove.emit(customer.id)" class="delete-button">
-        <mat-icon aria-label="Delete">delete</mat-icon>
-      </button>
-      <mat-chip-list class="type-chip">
-        <mat-chip color="accent" selected="true">
-          <mat-icon>monetization_on</mat-icon>
-          {{calculateBalance(customer.balance) | number: '.0-0' }} 
-        </mat-chip>
-      </mat-chip-list>
-    </div>
+  <li *ngFor="let customer of customers">
+    <bp-customer-item [customer]="customer" [searchTerm]="searchTerm"></bp-customer-item>
   </li>
 </ul>

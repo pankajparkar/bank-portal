@@ -5,8 +5,7 @@ import { UtilityService } from '../services/utility.service';
 let cache = {};
 
 @Pipe({
-  name: 'calculateAmout',
-  //pure: true //defaults to true
+  name: 'calculateAmout'
 })
 export class CalculateAmoutPipe implements PipeTransform {
   constructor(private utilityService: UtilityService, private decimalPipe: DecimalPipe){}
