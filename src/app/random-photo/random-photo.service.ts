@@ -12,11 +12,10 @@ export class RandomPhotoService {
   constructor(private httpClient: HttpClient) { }
 
   getRandomQuote(){
-    debugger
-    let randomNumber = parseInt((Math.random() * 100) % 5);
-    return this.httpClient.get(`${API_URL}/${randomNumber ? 1: randomNumber.toFixed(0)}`)
+    let randomNumber: any = parseInt((Math.random() * 100 % 5).toString());
+    return this.httpClient.get(`${API_URL}/${randomNumber ? 1: randomNumber}`)
     .pipe(
-      tap(i => i.url = `assets/images/${randomNumber}.jpeg`)
+      tap((i: any) => i.url = `assets/images/${randomNumber}.jpeg`)
     );
   }
 }

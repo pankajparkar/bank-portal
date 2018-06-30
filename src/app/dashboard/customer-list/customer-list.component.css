@@ -41,3 +41,8 @@ h3 {
     padding: 10px;
     margin-left: -10%;
 }
+
+.mat-icon-button {
+    height: 30px;
+    line-height: 30px;
+}

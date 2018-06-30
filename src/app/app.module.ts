@@ -14,7 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule,
     BrowserAnimationsModule // initally disabled
   ],
-  schemas: [NO_ERRORS_SCHEMA],
+  // schemas: [NO_ERRORS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
