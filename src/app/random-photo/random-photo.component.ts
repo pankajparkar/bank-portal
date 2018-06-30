@@ -13,6 +13,7 @@ import { RandomPhotoService } from './random-photo.service';
 export class RandomPhotoComponent implements OnInit {
 
   randomPhoto: any;
+  defaultUrl: string = 'assets/images/5.jpeg';
 
   constructor(private randomPhotoService: RandomPhotoService) { }
 

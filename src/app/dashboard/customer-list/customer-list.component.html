@@ -2,7 +2,7 @@
   <h3>
     <ng-content select=".title"></ng-content>
   </h3>
-  <form #customerForm="ngForm" (ngSubmit)="customerForm.valid && addCustomerAction(customerName)">
+  <form #customerForm="ngForm" (ngSubmit)="customerForm.valid && addCustomerAction()">
     <mat-form-field class="example-form-field">
       <input matInput type="search" name="customerName" [(ngModel)]="customerName" 
         placeholder="Enter customer name" required/>
