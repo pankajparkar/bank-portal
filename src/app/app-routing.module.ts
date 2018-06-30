@@ -9,6 +9,7 @@ import { CoreModule } from './core/core.module';
 const routes: Route[] = [
     {path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule'},
     {path: 'random-photo', loadChildren: './random-photo/random-photo.module#RandomPhotoModule'},
+    {path: 'calculator', loadChildren: './calculator/calculator.module#CalculatorModule'},
     {path: '**', redirectTo: 'dashboard'}
 ]
 

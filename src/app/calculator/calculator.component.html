@@ -1,0 +1,72 @@
+<center>
+  <mat-form-field class="example-full-width">
+    <input disabled [(ngModel)]="result" matInput placeholder="Output Result" value="Sushi">
+  </mat-form-field>
+  <mat-divider></mat-divider>
+  <mat-form-field class="example-full-width">
+    <input disabled [(ngModel)]="operation" matInput placeholder="Input Expression here.." value="Sushi">
+  </mat-form-field>
+</center>
+<mat-grid-list cols="4" rowHeight="1:1" rowHeight="100px">
+  <mat-grid-tile (click)="append('7')">
+    7
+  </mat-grid-tile>
+  <mat-grid-tile (click)="append('8')">
+    8
+  </mat-grid-tile>
+  <mat-grid-tile (click)="append('9')">
+    9
+  </mat-grid-tile>
+  <mat-grid-tile (click)="append('+')">
+    +
+  </mat-grid-tile>
+  <mat-grid-tile (click)="append('4')">
+    4
+  </mat-grid-tile>
+  <mat-grid-tile (click)="append('5')">
+    5
+  </mat-grid-tile>
+  <mat-grid-tile (click)="append('6')">
+    6
+  </mat-grid-tile>
+  <mat-grid-tile (click)="append('-')">
+    -
+  </mat-grid-tile>
+  <mat-grid-tile (click)="append('1')">
+    1
+  </mat-grid-tile>
+  <mat-grid-tile (click)="append('2')">
+    2
+  </mat-grid-tile>
+  <mat-grid-tile (click)="append('3')">
+    3
+  </mat-grid-tile>
+  <mat-grid-tile (click)="append('*')">
+    X
+  </mat-grid-tile>
+  <mat-grid-tile (click)="append('0')">
+    0
+  </mat-grid-tile>
+  <mat-grid-tile (click)="append('.')">
+    .
+  </mat-grid-tile>
+  <mat-grid-tile (click)="append('(')">
+    (
+  </mat-grid-tile>
+  <mat-grid-tile (click)="append(')')">
+    )
+  </mat-grid-tile>
+  <mat-grid-tile (click)="undo()">
+    <i class="material-icons">
+      undo
+    </i>
+  </mat-grid-tile>
+  <mat-grid-tile (click)="clear()">
+    <i class="material-icons">
+      clear
+    </i>
+  </mat-grid-tile>
+  <mat-grid-tile (click)="evaluate()">
+    =
+  </mat-grid-tile>
+</mat-grid-list>
