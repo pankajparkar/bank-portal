@@ -9,7 +9,7 @@
   <mat-chip-list>
     <mat-chip color="accent" selected="true">
       <mat-icon>monetization_on</mat-icon>
-      {{calculateBalance(customer.balance) | number: '.0-0' }} 
+      {{customer.balance | calculateAmout }} 
     </mat-chip>
   </mat-chip-list>
 </p>
