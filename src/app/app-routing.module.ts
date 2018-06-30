@@ -1,9 +1,5 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule, Route } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Route, NoPreloading, PreloadAllModules, PreloadingStrategy } from '@angular/router';
 import { CoreModule } from './core/core.module';
 
 const routes: Route[] = [
@@ -16,7 +12,7 @@ const routes: Route[] = [
 @NgModule({
     imports: [
         CoreModule.forRoot(),
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes, {preloadingStrategy: NoPreloading})
     ],
     exports: [RouterModule,CoreModule]
 })
