@@ -16,6 +16,11 @@
 
 <ul class="list">
   <li *ngFor="let customer of customers">
-    <bp-customer-item [customer]="customer" [searchTerm]="searchTerm"></bp-customer-item>
+    <bp-customer-item
+    [customer]="customer"
+    (selectCustomer)="select.emit($event)"
+    (openDialog)="edit.emit($event)"
+    (removedCustomer)="remove.emit($event)"
+    [searchTerm]="searchTerm"></bp-customer-item>
   </li>
 </ul>
