@@ -2,3 +2,31 @@
     display: flex;
     justify-content: space-around;
 }
+
+.customer-name {
+    margin: 5px;
+}
+
+.amount {
+    font-size: 15px;
+    height: 16px;
+    width: 18px;
+}
+
+.custom-chip {
+    padding: 3px 3px;
+}
+
+.mat-chip-list-wrapper {
+    padding: 3px 3px;
+}
+
+.customer-details {
+    margin: 0;
+}
+
+.delete-icon {
+    width: 0;
+    height: 25px;
+    line-height: 20px;
+}

@@ -4,8 +4,7 @@
   </h3>
   <form #customerForm="ngForm" (ngSubmit)="customerForm.valid && addCustomerAction()">
     <mat-form-field class="example-form-field">
-      <input matInput type="search" name="customerName" [(ngModel)]="customerName" 
-        placeholder="Enter customer name" required/>
+      <input matInput type="search" name="customerName" [(ngModel)]="customerName" placeholder="Enter customer name" required/>
     </mat-form-field>
     <button type="submit" mat-mini-fab color="primary">
       <mat-icon>add</mat-icon>
@@ -15,12 +14,11 @@
 <mat-divider></mat-divider>
 
 <ul class="list">
-  <li *ngFor="let customer of customers">
-    <bp-customer-item
-    [customer]="customer"
-    (selectCustomer)="select.emit($event)"
-    (openDialog)="edit.emit($event)"
+  <bp-customer-item *ngFor="let customer of customers"
+    [customer]="customer" 
+    (selectCustomer)="select.emit($event)" 
+    (openDialog)="edit.emit($event)" 
     (removedCustomer)="remove.emit($event)"
-    [searchTerm]="searchTerm"></bp-customer-item>
-  </li>
+    [searchTerm]="searchTerm">
+  </bp-customer-item>
 </ul>
